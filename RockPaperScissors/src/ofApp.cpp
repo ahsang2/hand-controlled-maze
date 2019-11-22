@@ -13,7 +13,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofClear(0);
-    ofDrawBitmapString("Hello World!", 100, 100);
+    ofDrawBitmapString("Rock Paper Scissors", 100, 100);
 }
 
 //--------------------------------------------------------------
