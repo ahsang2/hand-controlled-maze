@@ -1,10 +1,17 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxCv.h"
+#include "capture_image.h"
+
+enum State {STARTING, PLAYING, PAUSED};
 
 class ofApp : public ofBaseApp{
-
+    private:
+        State cur_state;
+        ofTrueTypeFont title_font;
+        ofTrueTypeFont sub_font;
+        void drawGameDisplay();
+    
 	public:
 		void setup();
 		void update();
@@ -21,5 +28,5 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+
 };
