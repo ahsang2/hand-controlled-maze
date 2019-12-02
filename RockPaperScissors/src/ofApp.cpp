@@ -9,7 +9,9 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    ofImage img;
+    img.load("image.png");
+    cv::Mat imgMat = ofxCv::toCv(img);
 }
 
 //--------------------------------------------------------------
