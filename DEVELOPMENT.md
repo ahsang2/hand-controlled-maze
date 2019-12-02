@@ -10,3 +10,7 @@
 - [X] Created enum + basic structure for the game
 - [X] Added class to begin working on opencv and webcam recognition
 - [X] Added catch for tests
+
+**December 2**
+- [X] Accessed webcam and setup view
+- [X] Started learning and implementing gesture recognition 
