@@ -12,15 +12,6 @@ int main( ){
 	// pass in width and height too:
 	ofRunApp(new ofApp());
     
-    /*Mat image;
-    VideoCapture cap;
-    cap.open(0);
-    namedWindow("window", 1);
-    while (1){
-        cap >> image;
-        imshow("window", image);
-        waitKey(33);
-    }*/
     return 0;
     
 }

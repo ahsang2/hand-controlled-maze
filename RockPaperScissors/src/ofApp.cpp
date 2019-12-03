@@ -5,29 +5,22 @@ void ofApp::setup(){
     cur_state = STARTING;
     title_font.load("BD.TTF", 80);
     sub_font.load("riffic.otf", 42);
-    cam.setup(580,460);
-    
-     gui.setup();
-        gui.add(resetBackground.set("Reset Background", false));
-        gui.add(learningTime.set("Learning Time", 30, 0, 30));
-        gui.add(thresholdValue.set("Threshold Value", 10, 0, 255));
-    
+    cam.initGrabber(580,460);
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     cam.update();
     
-    if(resetBackground) {
-        background.reset();
-        resetBackground = false;
-    }
     if(cam.isFrameNew()) {
-        background.setLearningTime(learningTime);
-        background.setThresholdValue(thresholdValue);
-        background.update(cam, thresholded);
-        thresholded.update();
+        contourFinder.setMinArea(60);
+        contourFinder.setMaxArea(600);
+        contourFinder.setThreshold(60);
+        contourFinder.findContours(cam);
     }
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -43,11 +36,7 @@ void ofApp::draw(){
             drawGameDisplay();
             sub_font.drawString("Rock", 200, 100);
             cam.draw(0, 200);
-            
-            if(thresholded.isAllocated()) {
-                thresholded.draw(640, 0);
-            }
-            gui.draw();
+            contourFinder.draw();
             break;
             
         case(PAUSED):

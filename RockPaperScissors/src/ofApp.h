@@ -12,13 +12,7 @@ class ofApp : public ofBaseApp{
         ofTrueTypeFont sub_font;
         void drawGameDisplay();
         ofVideoGrabber cam;
-    ofxCv::RunningBackground background;
-    ofImage thresholded;
-    
-    ofxPanel gui;
-    ofParameter<bool> resetBackground;
-    ofParameter<float> learningTime, thresholdValue;
-    
+        ofxCv::ContourFinder contourFinder;
     
 	public:
 		void setup();

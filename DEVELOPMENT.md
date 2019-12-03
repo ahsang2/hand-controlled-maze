@@ -14,3 +14,9 @@
 **December 2**
 - [X] Accessed webcam and setup view
 - [X] Started learning and implementing gesture recognition 
+
+**December 3**
+- The old way didn't work
+- [X] Figuring out how to focus on the hand
+- [] Using contours to classify gesture
+- [] 
