@@ -11,6 +11,14 @@ class ofApp : public ofBaseApp{
         ofTrueTypeFont title_font;
         ofTrueTypeFont sub_font;
         void drawGameDisplay();
+        ofVideoGrabber cam;
+    ofxCv::RunningBackground background;
+    ofImage thresholded;
+    
+    ofxPanel gui;
+    ofParameter<bool> resetBackground;
+    ofParameter<float> learningTime, thresholdValue;
+    
     
 	public:
 		void setup();
