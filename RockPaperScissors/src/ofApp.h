@@ -3,15 +3,27 @@
 #include "ofMain.h"
 #include "capture_image.h"
 
+
+
+
 enum State {STARTING, PLAYING, PAUSED};
 
 class ofApp : public ofBaseApp{
     private:
+        void drawGameDisplay();
+  std::unique_ptr<cv::Mat> updateHandPosition();
+   void contourHandPosition(cv::Mat thresholdedImage);
+     ofxPanel hsvValues;
+    ofParameter<float> lowH, highH, lowS, highS, lowV, highV;
+    
         State cur_state;
         ofTrueTypeFont title_font;
         ofTrueTypeFont sub_font;
-        void drawGameDisplay();
-        ofVideoGrabber cam;
+        ofVideoGrabber webcam;
+        ofxCvColorImage cameraImage;
+        ofxCvGrayscaleImage grayImage, learnedBackground;
+        ofImage displayImage;
+        ofxCvGrayscaleImage differences;
         ofxCv::ContourFinder contourFinder;
     
 	public:

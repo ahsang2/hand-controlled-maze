@@ -398,6 +398,7 @@
 		ADE96EF495A54DCF6F9E353D /* type_traits_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_traits_detail.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/detail/type_traits_detail.hpp; sourceTree = SOURCE_ROOT; };
 		AF76022A2A6D2644F13979CF /* photo.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = photo.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo.hpp; sourceTree = SOURCE_ROOT; };
 		AF9064626ECB30E8FCB7CE59 /* all_layers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = all_layers.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/dnn/all_layers.hpp; sourceTree = SOURCE_ROOT; };
+		AFD503512396F5350081FBA3 /* catch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = catch.hpp; path = ../src/catch.hpp; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -1722,6 +1723,7 @@
 		AFD5034F2396DB130081FBA3 /* catchtest */ = {
 			isa = PBXGroup;
 			children = (
+				AFD503512396F5350081FBA3 /* catch.hpp */,
 			);
 			path = catchtest;
 			sourceTree = "<group>";
