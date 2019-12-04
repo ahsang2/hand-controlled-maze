@@ -17,6 +17,9 @@
 
 **December 3**
 - The old way didn't work
-- [X] Figuring out how to focus on the hand
+- [] Figuring out how to focus on the hand
 - [] Using contours to classify gesture
-- [] 
+
+**December 4**
+- [] Trying to implement different examples to find contours and find the hand - none of it works or makes sense
+- [] Went to office hours to try to get somewhere
