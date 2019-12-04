@@ -28,10 +28,6 @@
 		7C7CB13CCEEA70E62A8FE4C8 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7B66F613D3F75BAB1111B97 /* ofxPanel.cpp */; };
 		A8AF5026B993C25974C7779A /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCB57444D8E1486F95A72 /* ofxCvFloatImage.cpp */; };
 		ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31757DEC3A684332F556844D /* Utilities.cpp */; };
-		AFD5035A2398776E0081FBA3 /* FaceDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503532398776E0081FBA3 /* FaceDetector.cpp */; };
-		AFD5035B2398776E0081FBA3 /* SkinDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503542398776E0081FBA3 /* SkinDetector.cpp */; };
-		AFD5035C2398776E0081FBA3 /* FingerCount.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503562398776E0081FBA3 /* FingerCount.cpp */; };
-		AFD5035D2398776E0081FBA3 /* BackgroundRemover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503582398776E0081FBA3 /* BackgroundRemover.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
 		C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF32BC9D5AB151D6847AF887 /* Kalman.cpp */; };
 		CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A3AC8664A392F2E43F7702 /* Distance.cpp */; };
@@ -368,7 +364,7 @@
 		9D2A75166A336DCA5772AC13 /* gmetaarg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmetaarg.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gmetaarg.hpp; sourceTree = SOURCE_ROOT; };
 		9DD02B82637A59CDC1E0AB54 /* ofxInputField.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxInputField.cpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxGui/src/ofxInputField.cpp; sourceTree = SOURCE_ROOT; };
 		9DD2E535277A0950D958E096 /* ml.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ml.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/ml.hpp; sourceTree = SOURCE_ROOT; };
-		9DD81D2D07BF346E3C79C58A /* catch.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = catch.hpp; path = src/catch.hpp; sourceTree = SOURCE_ROOT; };
+		9DD81D2D07BF346E3C79C58A /* catch.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = catch.hpp; path = test/catch.hpp; sourceTree = SOURCE_ROOT; };
 		9E490CD819006CE0D9C2774F /* garg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = garg.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/garg.hpp; sourceTree = SOURCE_ROOT; };
 		9F52940B4AC3495E2C42A23A /* calib3d.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = calib3d.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/calib3d/calib3d.hpp; sourceTree = SOURCE_ROOT; };
 		9FC11CC920031F9B2E2000B3 /* configuration.private.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = configuration.private.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/utils/configuration.private.hpp; sourceTree = SOURCE_ROOT; };
@@ -407,14 +403,6 @@
 		ADE96EF495A54DCF6F9E353D /* type_traits_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_traits_detail.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/detail/type_traits_detail.hpp; sourceTree = SOURCE_ROOT; };
 		AF76022A2A6D2644F13979CF /* photo.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = photo.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo.hpp; sourceTree = SOURCE_ROOT; };
 		AF9064626ECB30E8FCB7CE59 /* all_layers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = all_layers.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/dnn/all_layers.hpp; sourceTree = SOURCE_ROOT; };
-		AFD503522398776E0081FBA3 /* FingerCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FingerCount.h; path = "../../../../Downloads/handy-master/Handy/FingerCount.h"; sourceTree = "<group>"; };
-		AFD503532398776E0081FBA3 /* FaceDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FaceDetector.cpp; path = "../../../../Downloads/handy-master/Handy/FaceDetector.cpp"; sourceTree = "<group>"; };
-		AFD503542398776E0081FBA3 /* SkinDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkinDetector.cpp; path = "../../../../Downloads/handy-master/Handy/SkinDetector.cpp"; sourceTree = "<group>"; };
-		AFD503552398776E0081FBA3 /* SkinDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkinDetector.h; path = "../../../../Downloads/handy-master/Handy/SkinDetector.h"; sourceTree = "<group>"; };
-		AFD503562398776E0081FBA3 /* FingerCount.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FingerCount.cpp; path = "../../../../Downloads/handy-master/Handy/FingerCount.cpp"; sourceTree = "<group>"; };
-		AFD503572398776E0081FBA3 /* BackgroundRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackgroundRemover.h; path = "../../../../Downloads/handy-master/Handy/BackgroundRemover.h"; sourceTree = "<group>"; };
-		AFD503582398776E0081FBA3 /* BackgroundRemover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BackgroundRemover.cpp; path = "../../../../Downloads/handy-master/Handy/BackgroundRemover.cpp"; sourceTree = "<group>"; };
-		AFD503592398776E0081FBA3 /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetector.h; path = "../../../../Downloads/handy-master/Handy/FaceDetector.h"; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -1744,6 +1732,14 @@
 			name = hal;
 			sourceTree = "<group>";
 		};
+		AFD5035E23987B2B0081FBA3 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				9DD81D2D07BF346E3C79C58A /* catch.hpp */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		B0A2BCC6652D35D0CBCC4474 /* openvx */ = {
 			isa = PBXGroup;
 			children = (
@@ -2157,6 +2153,7 @@
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				AFD5035E23987B2B0081FBA3 /* test */,
 				E42962AA2163EDD300A6A9E2 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
@@ -2167,20 +2164,11 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AFD503582398776E0081FBA3 /* BackgroundRemover.cpp */,
-				AFD503572398776E0081FBA3 /* BackgroundRemover.h */,
-				AFD503532398776E0081FBA3 /* FaceDetector.cpp */,
-				AFD503592398776E0081FBA3 /* FaceDetector.h */,
-				AFD503562398776E0081FBA3 /* FingerCount.cpp */,
-				AFD503522398776E0081FBA3 /* FingerCount.h */,
-				AFD503542398776E0081FBA3 /* SkinDetector.cpp */,
-				AFD503552398776E0081FBA3 /* SkinDetector.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				CA2F85728570703887863BAC /* capture_image.h */,
 				656DB201D14B3AF10097A271 /* capture_image.cpp */,
-				9DD81D2D07BF346E3C79C58A /* catch.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -2425,10 +2413,8 @@
 				13D630293D3AC33439338836 /* fdog.cpp in Sources */,
 				DB1B5552EB5030AE05780306 /* Calibration.cpp in Sources */,
 				EC60B5105C8176C958BE970F /* ContourFinder.cpp in Sources */,
-				AFD5035D2398776E0081FBA3 /* BackgroundRemover.cpp in Sources */,
 				CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */,
 				FFF73D4178760BD964FAAC65 /* Flow.cpp in Sources */,
-				AFD5035B2398776E0081FBA3 /* SkinDetector.cpp in Sources */,
 				C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */,
 				C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */,
 				D28CB6E461D63C0D4763CCB5 /* ObjectFinder.cpp in Sources */,
@@ -2443,9 +2429,7 @@
 				EA9F696022F31CD81311B45F /* ofxInputField.cpp in Sources */,
 				F070CA439C8B7647FFF306B2 /* ofxLabel.cpp in Sources */,
 				7C7CB13CCEEA70E62A8FE4C8 /* ofxPanel.cpp in Sources */,
-				AFD5035A2398776E0081FBA3 /* FaceDetector.cpp in Sources */,
 				4F6C9D5B2666C0538C22CAE0 /* ofxSlider.cpp in Sources */,
-				AFD5035C2398776E0081FBA3 /* FingerCount.cpp in Sources */,
 				321D8BB069E0EB6BEF26BA14 /* ofxSliderGroup.cpp in Sources */,
 				49A7E90F3FB33DB967932317 /* ofxToggle.cpp in Sources */,
 				343CF5C395007ADD24F94731 /* ofxHandDetect.cpp in Sources */,
