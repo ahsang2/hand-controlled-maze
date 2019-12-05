@@ -28,6 +28,8 @@
 		7C7CB13CCEEA70E62A8FE4C8 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7B66F613D3F75BAB1111B97 /* ofxPanel.cpp */; };
 		A8AF5026B993C25974C7779A /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCB57444D8E1486F95A72 /* ofxCvFloatImage.cpp */; };
 		ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31757DEC3A684332F556844D /* Utilities.cpp */; };
+		AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5035F23987B650081FBA3 /* classifying-test.cpp */; };
+		AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
 		C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF32BC9D5AB151D6847AF887 /* Kalman.cpp */; };
 		CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A3AC8664A392F2E43F7702 /* Distance.cpp */; };
@@ -403,6 +405,9 @@
 		ADE96EF495A54DCF6F9E353D /* type_traits_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_traits_detail.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/detail/type_traits_detail.hpp; sourceTree = SOURCE_ROOT; };
 		AF76022A2A6D2644F13979CF /* photo.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = photo.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo.hpp; sourceTree = SOURCE_ROOT; };
 		AF9064626ECB30E8FCB7CE59 /* all_layers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = all_layers.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/dnn/all_layers.hpp; sourceTree = SOURCE_ROOT; };
+		AFD5035F23987B650081FBA3 /* classifying-test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "classifying-test.cpp"; sourceTree = "<group>"; };
+		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
+		AFD503652398C61A0081FBA3 /* hand_recognizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hand_recognizer.hpp; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -1736,6 +1741,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD81D2D07BF346E3C79C58A /* catch.hpp */,
+				AFD5035F23987B650081FBA3 /* classifying-test.cpp */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -2169,6 +2175,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				CA2F85728570703887863BAC /* capture_image.h */,
 				656DB201D14B3AF10097A271 /* capture_image.cpp */,
+				AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */,
+				AFD503652398C61A0081FBA3 /* hand_recognizer.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -2401,6 +2409,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */,
 				2D1AB20399D14AA0945D6E7D /* capture_image.cpp in Sources */,
 				39076069EAD9BF69E3E057F7 /* ofxCvColorImage.cpp in Sources */,
 				46860AB9B848878E6D8772CB /* ofxCvContourFinder.cpp in Sources */,
@@ -2423,6 +2432,7 @@
 				ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */,
 				3BB8D8177714121604BBA506 /* Wrappers.cpp in Sources */,
 				5E83418F9D512096E664CE63 /* ofxBaseGui.cpp in Sources */,
+				AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */,
 				18CA0E954AFCB52C3E404087 /* ofxButton.cpp in Sources */,
 				6E9E2F0114D150B6DD9ABF09 /* ofxColorPicker.cpp in Sources */,
 				118626B15D4B484171B93397 /* ofxGuiGroup.cpp in Sources */,

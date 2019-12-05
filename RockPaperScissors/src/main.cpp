@@ -2,10 +2,7 @@
 #include "ofApp.h"
 #include "opencv2/imgproc.hpp"
 
-#include "BackgroundRemover.h"
-#include "SkinDetector.h"
-#include "FaceDetector.h"
-#include "FingerCount.h"
+
 //========================================================================
 using namespace std;
 

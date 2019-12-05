@@ -1,0 +1,99 @@
+//
+//  hand_recognizer.cpp
+//  RockPaperScissors
+//
+//  Created by Ahsan Gilani on 12/4/19.
+//
+
+#include "hand_recognizer.hpp"
+
+void HandRecognizer::setup() {
+    ofBackground(0,0,0);
+    
+    w = 320 * 3;
+    h = 240 * 3 ;
+    
+    webcam.initGrabber(w, h, true);
+    
+    //reserve memory for cv images
+    rgb.allocate(w, h);
+    hsb.allocate(w, h);
+    hue.allocate(w, h);
+    sat.allocate(w, h);
+    bri.allocate(w, h);
+    filtered.allocate(w, h);
+}
+
+void HandRecognizer::update(){
+    
+    webcam.update();
+    
+    if (webcam.isFrameNew()) {
+        
+        //copy webcam pixels to rgb image
+        rgb.setFromPixels(webcam.getPixels());
+        rgb.resize(w, h);
+        
+        //mirror horizontal
+        rgb.mirror(false, true);
+        
+        //duplicate rgb
+        hsb = rgb;
+        
+        //convert to hsb
+        hsb.convertRgbToHsv();
+        
+        //store the three channels as grayscale images
+        hsb.convertToGrayscalePlanarImages(hue, sat, bri);
+        
+        //filter image based on the hue value were looking for
+        for (int i=0; i<w*h; i++) {
+            filtered.getPixels()[i] = ofInRange(hue.getPixels()[i],findHue-6,findHue+6) ? 255 : 0;
+        }
+        filtered.flagImageChanged();
+
+        //run the contour finder on the filtered image to find blobs with a certain hue
+        contours.findContours(filtered, 100, w*h/2, 1, false);
+    }
+}
+
+void HandRecognizer::draw(){
+    ofSetColor(255,255,255);
+    
+    //draw all cv images
+    rgb.draw(0,0);
+//    hsb.draw(640,0);
+//    hue.draw(0,240);
+//    sat.draw(320,240);
+//    bri.draw(640,240);
+//    filtered.draw(0,480);
+    contours.draw(0,0);
+}
+
+void HandRecognizer::mousePressed(int x, int y, int button) {
+    
+    //calculate local mouse x,y in image
+    int mx = x % w;
+    int my = y % h;
+    
+    //get hue value on mouse position
+    findHue = hue.getPixels()[my*w+mx];
+}
+
+Gesture HandRecognizer::getGesture(){
+    for (int i=0; i<contours.nBlobs; i++) {
+        int x = 0;
+        int y = 0;
+        int height = 0;
+        
+        if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
+            return Gesture::PAPER;
+        }
+        else if (contours.blobs[i].centroid.x < w / 2){
+            return Gesture::ROCK;
+        }
+        else if (contours.blobs[i].centroid.x > w / 2){
+            return Gesture::SCISSORS;
+        }
+    }
+}

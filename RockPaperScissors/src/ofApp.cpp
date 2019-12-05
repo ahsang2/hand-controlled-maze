@@ -1,8 +1,6 @@
 #include "ofApp.h"
 
-
-using namespace cv;
-using namespace ofxCv;
+using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -10,27 +8,19 @@ void ofApp::setup(){
     title_font.load("BD.TTF", 80);
     sub_font.load("riffic.otf", 42);
     
-    webcam.setVerbose(true);
-    webcam.initGrabber(320,240);
-    CvSeq n;
-
+    recognizer.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-     webcam.update();
-    
-    if(webcam.isFrameNew()) {
-        contourFinder.setMinArea(60);
-         contourFinder.setMaxArea(600);
-         contourFinder.setThreshold(60);
-    contourFinder.findContours(webcam);
-    }
-    
+    recognizer.update();
+    gesture = recognizer.getGesture();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    
     switch(cur_state) {
         case(STARTING):
             title_font.drawString("Rock Paper Scissors", 40, 100);
@@ -41,8 +31,16 @@ void ofApp::draw(){
             ofSetColor(130, 100, 70);
             drawGameDisplay();
             sub_font.drawString("Rock", 200, 100);
-            webcam.draw(0, 200);
-            contourFinder.draw();
+            recognizer.draw();
+            if(gesture == ROCK) {
+                ofDrawBitmapString("rock", 120, 300);
+            }
+            if(gesture == PAPER) {
+                ofDrawBitmapString("paper", 120, 300);
+            }
+            if(gesture == SCISSORS) {
+                ofDrawBitmapString("scissors", 120, 300);
+            }
             break;
         }
             
@@ -52,24 +50,20 @@ void ofApp::draw(){
         default:
             break;
     }
-
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    
     if(cur_state != STARTING && key == 'p')
-    {
-        cur_state = PAUSED;
-    }
-    else if(key == ' ') {
-        cur_state = PLAYING;
-    }
-    else if(cur_state == PAUSED) {
-        cur_state = PLAYING;
-    }
- 
-    
+       {
+           cur_state = PAUSED;
+       }
+       else if(key == ' ') {
+           cur_state = PLAYING;
+       }
+       else if(cur_state == PAUSED) {
+           cur_state = PLAYING;
+       }
 }
 
 //--------------------------------------------------------------
@@ -89,7 +83,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    recognizer.mousePressed(x, y, button);
 }
 
 //--------------------------------------------------------------
@@ -122,9 +116,6 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
 
-void ofApp::drawGameDisplay() {
+void ofApp::drawGameDisplay(){
     //draw
 }
-
-
-

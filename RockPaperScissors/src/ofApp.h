@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "capture_image.h"
+#include "hand_recognizer.hpp"
 
 
 
@@ -11,13 +11,13 @@ enum State {STARTING, PLAYING, PAUSED};
 class ofApp : public ofBaseApp{
     private:
         void drawGameDisplay();
-
     
-        State cur_state;
         ofTrueTypeFont title_font;
         ofTrueTypeFont sub_font;
-        ofVideoGrabber webcam;
-        ofxCv::ContourFinder contourFinder;
+        HandRecognizer recognizer;
+        Gesture gesture;
+        State cur_state;
+        
     
 	public:
 		void setup();
