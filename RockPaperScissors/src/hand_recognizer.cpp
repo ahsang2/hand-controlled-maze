@@ -5,15 +5,15 @@
 //  Created by Ahsan Gilani on 12/4/19.
 //
 
-#include "hand_recognizer.hpp"
+#include "hand_recognizer.h"
 
 void HandRecognizer::setup() {
     ofBackground(0,0,0);
     
-    w = 320 * 3;
-    h = 240 * 3 ;
+    w = 320;
+    h = 240;
     
-    webcam.initGrabber(w, h, true);
+    webcam.initGrabber(w, h);
     
     //reserve memory for cv images
     rgb.allocate(w, h);
@@ -62,11 +62,7 @@ void HandRecognizer::draw(){
     
     //draw all cv images
     rgb.draw(0,0);
-//    hsb.draw(640,0);
-//    hue.draw(0,240);
-//    sat.draw(320,240);
-//    bri.draw(640,240);
-//    filtered.draw(0,480);
+
     contours.draw(0,0);
 }
 
@@ -86,10 +82,11 @@ Gesture HandRecognizer::getGesture(){
         int y = 0;
         int height = 0;
         
-        if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
+      /*  if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
             return Gesture::PAPER;
-        }
-        else if (contours.blobs[i].centroid.x < w / 2){
+        }*/
+        //else
+        if (contours.blobs[i].centroid.x < w / 2){
             return Gesture::ROCK;
         }
         else if (contours.blobs[i].centroid.x > w / 2){

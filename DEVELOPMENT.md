@@ -36,5 +36,7 @@ I may try to revisit this in the future: here's what I tried: The following link
 
 **My current resources:** https://www.opencv-srf.com/2010/09/object-detection-using-color-seperation.html, https://sites.google.com/site/ofauckland/examples/10-testing
 
-**December 4**
-- May switch to a game better suited to hand tracking as oppose to the recongition that Rock, Paper, Scissors required. Maybe snake?
+**December 5**
+- May switch to a game better suited to hand tracking as oppose to the recongition that Rock, Paper, Scissors required. Maybe snake, tic tac toe?
+- [X] Decided to change the game to a maze controlled by hand movements
+

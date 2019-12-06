@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "hand_recognizer.hpp"
+#include "hand_recognizer.h"
 
 
 

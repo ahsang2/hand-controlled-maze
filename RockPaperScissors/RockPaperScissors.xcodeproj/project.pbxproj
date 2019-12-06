@@ -407,7 +407,7 @@
 		AF9064626ECB30E8FCB7CE59 /* all_layers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = all_layers.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/dnn/all_layers.hpp; sourceTree = SOURCE_ROOT; };
 		AFD5035F23987B650081FBA3 /* classifying-test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "classifying-test.cpp"; sourceTree = "<group>"; };
 		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
-		AFD503652398C61A0081FBA3 /* hand_recognizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hand_recognizer.hpp; sourceTree = "<group>"; };
+		AFD503652398C61A0081FBA3 /* hand_recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hand_recognizer.h; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -2176,7 +2176,7 @@
 				CA2F85728570703887863BAC /* capture_image.h */,
 				656DB201D14B3AF10097A271 /* capture_image.cpp */,
 				AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */,
-				AFD503652398C61A0081FBA3 /* hand_recognizer.hpp */,
+				AFD503652398C61A0081FBA3 /* hand_recognizer.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
