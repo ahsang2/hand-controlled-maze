@@ -12,7 +12,6 @@
 		13D630293D3AC33439338836 /* fdog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7756B68C77CCA100ED00FEBE /* fdog.cpp */; };
 		18CA0E954AFCB52C3E404087 /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EB66C4E18C9709F5EB1130C /* ofxButton.cpp */; };
 		2A1A23F22A59DE72995D8D62 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEDEE385130451224D93943 /* ofxCvHaarFinder.cpp */; };
-		2D1AB20399D14AA0945D6E7D /* capture_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 656DB201D14B3AF10097A271 /* capture_image.cpp */; };
 		321D8BB069E0EB6BEF26BA14 /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19BFBD8A30BEB6561F3EACE /* ofxSliderGroup.cpp */; };
 		343CF5C395007ADD24F94731 /* ofxHandDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C7164B4EDAE3E05AD1C63 /* ofxHandDetect.cpp */; };
 		39076069EAD9BF69E3E057F7 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 718843A07B658E0FD46FF87D /* ofxCvColorImage.cpp */; };
@@ -30,6 +29,10 @@
 		ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31757DEC3A684332F556844D /* Utilities.cpp */; };
 		AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5035F23987B650081FBA3 /* classifying-test.cpp */; };
 		AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */; };
+		AFD5036F239AF3BB0081FBA3 /* snakebody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50368239AF3BB0081FBA3 /* snakebody.cpp */; };
+		AFD50370239AF3BB0081FBA3 /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5036C239AF3BB0081FBA3 /* snake.cpp */; };
+		AFD50371239AF3BB0081FBA3 /* SnakeFood.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */; };
+		AFD50373239AF67E0081FBA3 /* orgofapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* orgofapp.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
 		C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF32BC9D5AB151D6847AF887 /* Kalman.cpp */; };
 		CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A3AC8664A392F2E43F7702 /* Distance.cpp */; };
@@ -238,7 +241,6 @@
 		61FE86B3565B7A379982093F /* trace.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = trace.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/utils/trace.hpp; sourceTree = SOURCE_ROOT; };
 		626EFC545FC21EF719DCD6C2 /* util_inl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = util_inl.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/stitching/detail/util_inl.hpp; sourceTree = SOURCE_ROOT; };
 		63BB37C8C55CA289FB77C591 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxButton.h; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
-		656DB201D14B3AF10097A271 /* capture_image.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = capture_image.cpp; path = src/capture_image.cpp; sourceTree = SOURCE_ROOT; };
 		6793F05D6B98F6242D468215 /* gapi.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gapi.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi.hpp; sourceTree = SOURCE_ROOT; };
 		6840F67B9D60AE6DBD3E4241 /* core.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = core.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/core.hpp; sourceTree = SOURCE_ROOT; };
 		68DC2F4211488CCB1FAA4218 /* Flow.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Flow.h; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxCv/libs/ofxCv/include/ofxCv/Flow.h; sourceTree = SOURCE_ROOT; };
@@ -408,6 +410,15 @@
 		AFD5035F23987B650081FBA3 /* classifying-test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "classifying-test.cpp"; sourceTree = "<group>"; };
 		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
 		AFD503652398C61A0081FBA3 /* hand_recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hand_recognizer.h; sourceTree = "<group>"; };
+		AFD50367239AF3BB0081FBA3 /* ll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ll.h; path = "../../../serious-snakes-ahsang2/src/ll.h"; sourceTree = "<group>"; };
+		AFD50368239AF3BB0081FBA3 /* snakebody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = snakebody.cpp; path = "../../../serious-snakes-ahsang2/src/snakebody.cpp"; sourceTree = "<group>"; };
+		AFD50369239AF3BB0081FBA3 /* snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = snake.h; path = "../../../serious-snakes-ahsang2/src/snake.h"; sourceTree = "<group>"; };
+		AFD5036A239AF3BB0081FBA3 /* snakebody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = snakebody.h; path = "../../../serious-snakes-ahsang2/src/snakebody.h"; sourceTree = "<group>"; };
+		AFD5036B239AF3BB0081FBA3 /* SnakeFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnakeFood.h; path = "../../../serious-snakes-ahsang2/src/SnakeFood.h"; sourceTree = "<group>"; };
+		AFD5036C239AF3BB0081FBA3 /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = snake.cpp; path = "../../../serious-snakes-ahsang2/src/snake.cpp"; sourceTree = "<group>"; };
+		AFD5036D239AF3BB0081FBA3 /* ll.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ll.hpp; path = "../../../serious-snakes-ahsang2/src/ll.hpp"; sourceTree = "<group>"; };
+		AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SnakeFood.cpp; path = "../../../serious-snakes-ahsang2/src/SnakeFood.cpp"; sourceTree = "<group>"; };
+		AFD50372239AF67E0081FBA3 /* orgofapp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orgofapp.cpp; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -474,7 +485,6 @@
 		C8D535BFA5073C595891DF0A /* eigen.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = eigen.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/eigen.hpp; sourceTree = SOURCE_ROOT; };
 		C99C3077DF07DE17508A1D4A /* any.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = any.h; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/flann/any.h; sourceTree = SOURCE_ROOT; };
 		C9EE8399156CED98E0ABCC85 /* autotuned_index.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = autotuned_index.h; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/flann/autotuned_index.h; sourceTree = SOURCE_ROOT; };
-		CA2F85728570703887863BAC /* capture_image.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = capture_image.h; path = src/capture_image.h; sourceTree = SOURCE_ROOT; };
 		CBAA973C8084E9286E45758D /* ETF.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ETF.cpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxCv/libs/CLD/src/ETF.cpp; sourceTree = SOURCE_ROOT; };
 		CD805B5AFEAC33FE798B13DE /* limits.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = limits.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/limits.hpp; sourceTree = SOURCE_ROOT; };
 		CD97203BEA5B2B16E2FA0CC7 /* opencl_gl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = opencl_gl.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/opencl/runtime/autogenerated/opencl_gl.hpp; sourceTree = SOURCE_ROOT; };
@@ -2170,11 +2180,18 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AFD50367239AF3BB0081FBA3 /* ll.h */,
+				AFD5036D239AF3BB0081FBA3 /* ll.hpp */,
+				AFD5036C239AF3BB0081FBA3 /* snake.cpp */,
+				AFD50369239AF3BB0081FBA3 /* snake.h */,
+				AFD50368239AF3BB0081FBA3 /* snakebody.cpp */,
+				AFD5036A239AF3BB0081FBA3 /* snakebody.h */,
+				AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */,
+				AFD5036B239AF3BB0081FBA3 /* SnakeFood.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				AFD50372239AF67E0081FBA3 /* orgofapp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				CA2F85728570703887863BAC /* capture_image.h */,
-				656DB201D14B3AF10097A271 /* capture_image.cpp */,
 				AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */,
 				AFD503652398C61A0081FBA3 /* hand_recognizer.h */,
 			);
@@ -2338,7 +2355,7 @@
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 1120;
 			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "RockPaperScissors" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2407,10 +2424,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD50371239AF3BB0081FBA3 /* SnakeFood.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */,
-				2D1AB20399D14AA0945D6E7D /* capture_image.cpp in Sources */,
 				39076069EAD9BF69E3E057F7 /* ofxCvColorImage.cpp in Sources */,
 				46860AB9B848878E6D8772CB /* ofxCvContourFinder.cpp in Sources */,
 				A8AF5026B993C25974C7779A /* ofxCvFloatImage.cpp in Sources */,
@@ -2418,6 +2435,8 @@
 				2A1A23F22A59DE72995D8D62 /* ofxCvHaarFinder.cpp in Sources */,
 				D65ACF2EE576680DAB7BB4B9 /* ofxCvImage.cpp in Sources */,
 				4F8AD734CF1583A661B67747 /* ofxCvShortImage.cpp in Sources */,
+				AFD5036F239AF3BB0081FBA3 /* snakebody.cpp in Sources */,
+				AFD50370239AF3BB0081FBA3 /* snake.cpp in Sources */,
 				763813DAC064424DDC91FD46 /* ETF.cpp in Sources */,
 				13D630293D3AC33439338836 /* fdog.cpp in Sources */,
 				DB1B5552EB5030AE05780306 /* Calibration.cpp in Sources */,
@@ -2426,6 +2445,7 @@
 				FFF73D4178760BD964FAAC65 /* Flow.cpp in Sources */,
 				C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */,
 				C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */,
+				AFD50373239AF67E0081FBA3 /* orgofapp.cpp in Sources */,
 				D28CB6E461D63C0D4763CCB5 /* ObjectFinder.cpp in Sources */,
 				F35865DE2E7A882A064F0148 /* RunningBackground.cpp in Sources */,
 				004685BFE3E713C2E18BFF54 /* Tracker.cpp in Sources */,
@@ -2453,21 +2473,45 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DISTRIBUTION=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -2566,6 +2610,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2665,6 +2711,7 @@
 					"$(LIB_OF)",
 					../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.openFrameworks.${EXECUTABLE_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
@@ -2675,19 +2722,44 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -2787,20 +2859,44 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -2899,6 +2995,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2998,6 +3096,7 @@
 					"$(LIB_OF_DEBUG)",
 					../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.openFrameworks.${EXECUTABLE_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3007,6 +3106,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -3105,6 +3206,7 @@
 					"$(LIB_OF)",
 					../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.openFrameworks.${EXECUTABLE_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;

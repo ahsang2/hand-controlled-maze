@@ -4,16 +4,14 @@
 //
 //  Created by Ahsan Gilani on 12/4/19.
 //
+#pragma once
 
 #include "ofCamera.h"
 #include "ofxOpenCv.h"
-
-#ifndef hand_recognizer_hpp
-#define hand_recognizer_hpp
-
 #include <stdio.h>
+#include "ofxCv.h"
+#include "ofxGui.h"
 
-#endif /* hand_recognizer_hpp */
 
 enum Gesture { ROCK, PAPER, SCISSORS};
 

@@ -1,12 +1,19 @@
 #pragma once
 
 #include "ofMain.h"
+#include <cstdlib>
+#include <ctime>
+#include <utility>
 #include "hand_recognizer.h"
+#include "SnakeFood.h"
+#include "ofMain.h"
+#include "snake.h"
 
 
 
+namespace snakelinkedlist {
 
-enum State {STARTING, PLAYING, PAUSED};
+enum State {STARTING, PLAYING, PAUSED, IN_PROGRESS, FINISHED};
 
 class ofApp : public ofBaseApp{
     private:
@@ -18,6 +25,20 @@ class ofApp : public ofBaseApp{
         Gesture gesture;
         State cur_state;
         
+    Snake game_snake_;  // The object that represents the user controlled snake
+        SnakeFood game_food_;  // The object that represents the food pellet the
+                               // user is attempting to eat with the snake
+    
+        bool should_update_ =
+            true;
+    
+    void drawFood();
+        void drawSnake();
+        void drawGameOver();
+        void drawGamePaused();
+    
+        // Resets the game objects to their original state.
+        void reset();
     
 	public:
 		void setup();
@@ -37,3 +58,4 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 };
+}
