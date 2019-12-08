@@ -1,4 +1,4 @@
-/*#include "ofApp.h"
+#include "ofApp.h"
 
 using namespace std;
 using namespace snakelinkedlist;
@@ -21,7 +21,6 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    
     switch(cur_state) {
         case(STARTING):
             title_font.drawString("Rock Paper Scissors", 40, 100);
@@ -34,13 +33,10 @@ void ofApp::draw(){
             sub_font.drawString("Rock", 200, 100);
             recognizer.draw();
             if(gesture == ROCK) {
-                ofDrawBitmapString("rock", 120, 300);
-            }
-            if(gesture == PAPER) {
-                ofDrawBitmapString("paper", 120, 300);
+                ofDrawBitmapString("left", 120, 300);
             }
             if(gesture == SCISSORS) {
-                ofDrawBitmapString("scissors", 120, 300);
+                ofDrawBitmapString("right", 120, 300);
             }
             break;
         }
@@ -120,4 +116,45 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 void ofApp::drawGameDisplay(){
     //draw
 }
-*/
+
+void ofApp::drawFood() {
+    ofSetColor(game_food_.getColor());
+    ofDrawRectangle(game_food_.getFoodRect());
+}
+
+void ofApp::drawSnake() {
+    ofVec2f snake_body_size = game_snake_.getBodySize();
+    ofVec2f head_pos = game_snake_.getHead()->position;
+    ofSetColor(game_snake_.getHead()->color);
+    ofDrawRectangle(head_pos.x, head_pos.y, snake_body_size.x,
+                    snake_body_size.y);
+
+    for (SnakeBody* curr = game_snake_.getHead(); curr != NULL;
+         curr = curr->next) {
+        ofVec2f currPos = curr->position;
+        ofSetColor(curr->color);
+        ofDrawRectangle(currPos.x, currPos.y, snake_body_size.x,
+                        snake_body_size.y);
+    }
+}
+
+void ofApp::drawGameOver() {
+    string total_food = std::to_string(game_snake_.getFoodEaten());
+    string lose_message = "You Lost! Final Score: " + total_food;
+    ofSetColor(0, 0, 0);
+    ofDrawBitmapString(lose_message, ofGetWindowWidth() / 2,
+                       ofGetWindowHeight() / 2);
+}
+
+void ofApp::drawGamePaused() {
+    string pause_message = "P to Unpause!";
+    ofSetColor(0, 0, 0);
+    ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
+                       ofGetWindowHeight() / 2);
+}
+
+void ofApp::reset() {
+    game_snake_ = Snake();
+    game_food_.rebase();
+    cur_state = IN_PROGRESS;
+}

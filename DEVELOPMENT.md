@@ -43,3 +43,6 @@ I may try to revisit this in the future: here's what I tried: The following link
 **December 6**
 - [] Improving hand tracking (adding classifying by velocity to change direction)
 - [] Getting snake game to work with my hand tracker so I can make sure the controls work via the webcam
+
+**December 7**
+- [] Continuing yesterdays tasks, specifcally --> switched to other ContourFinder and doing research on how to detect movement and find the velocity of where the "blob" moved

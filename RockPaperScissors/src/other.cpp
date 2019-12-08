@@ -1,4 +1,4 @@
-
+#if 0
 #include "ofApp.h"
 
 #include <iostream>
@@ -165,3 +165,5 @@ void ofApp::drawGamePaused() {
     ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
                        ofGetWindowHeight() / 2);
 }
+
+#endif

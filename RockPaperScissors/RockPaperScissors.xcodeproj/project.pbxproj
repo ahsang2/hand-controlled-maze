@@ -32,7 +32,7 @@
 		AFD5036F239AF3BB0081FBA3 /* snakebody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50368239AF3BB0081FBA3 /* snakebody.cpp */; };
 		AFD50370239AF3BB0081FBA3 /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5036C239AF3BB0081FBA3 /* snake.cpp */; };
 		AFD50371239AF3BB0081FBA3 /* SnakeFood.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */; };
-		AFD50373239AF67E0081FBA3 /* orgofapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* orgofapp.cpp */; };
+		AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* ofApp.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
 		C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF32BC9D5AB151D6847AF887 /* Kalman.cpp */; };
 		CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A3AC8664A392F2E43F7702 /* Distance.cpp */; };
@@ -40,7 +40,7 @@
 		D65ACF2EE576680DAB7BB4B9 /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73C97A6DC76C4E93C79CF601 /* ofxCvImage.cpp */; };
 		DB1B5552EB5030AE05780306 /* Calibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B6014A32CE2B603DEED22C7 /* Calibration.cpp */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
-		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* other.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* other.cpp */; };
 		EA9F696022F31CD81311B45F /* ofxInputField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DD02B82637A59CDC1E0AB54 /* ofxInputField.cpp */; };
 		EC60B5105C8176C958BE970F /* ContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ACCDE4E6CB62AD0B84EAB158 /* ContourFinder.cpp */; };
 		F070CA439C8B7647FFF306B2 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7B58A14CF83F2A8E46F24DA /* ofxLabel.cpp */; };
@@ -418,7 +418,7 @@
 		AFD5036C239AF3BB0081FBA3 /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = snake.cpp; path = "../../../serious-snakes-ahsang2/src/snake.cpp"; sourceTree = "<group>"; };
 		AFD5036D239AF3BB0081FBA3 /* ll.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ll.hpp; path = "../../../serious-snakes-ahsang2/src/ll.hpp"; sourceTree = "<group>"; };
 		AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SnakeFood.cpp; path = "../../../serious-snakes-ahsang2/src/SnakeFood.cpp"; sourceTree = "<group>"; };
-		AFD50372239AF67E0081FBA3 /* orgofapp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orgofapp.cpp; sourceTree = "<group>"; };
+		AFD50372239AF67E0081FBA3 /* ofApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -712,7 +712,7 @@
 		E457618B71079A8B918CCD53 /* sse_utils.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = sse_utils.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/sse_utils.hpp; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* RockPaperScissorsDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissorsDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* other.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = other.cpp; path = src/other.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
@@ -2189,8 +2189,8 @@
 				AFD5036E239AF3BB0081FBA3 /* SnakeFood.cpp */,
 				AFD5036B239AF3BB0081FBA3 /* SnakeFood.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
-				AFD50372239AF67E0081FBA3 /* orgofapp.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* other.cpp */,
+				AFD50372239AF67E0081FBA3 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */,
 				AFD503652398C61A0081FBA3 /* hand_recognizer.h */,
@@ -2426,7 +2426,7 @@
 			files = (
 				AFD50371239AF3BB0081FBA3 /* SnakeFood.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* other.cpp in Sources */,
 				AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */,
 				39076069EAD9BF69E3E057F7 /* ofxCvColorImage.cpp in Sources */,
 				46860AB9B848878E6D8772CB /* ofxCvContourFinder.cpp in Sources */,
@@ -2445,7 +2445,7 @@
 				FFF73D4178760BD964FAAC65 /* Flow.cpp in Sources */,
 				C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */,
 				C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */,
-				AFD50373239AF67E0081FBA3 /* orgofapp.cpp in Sources */,
+				AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */,
 				D28CB6E461D63C0D4763CCB5 /* ObjectFinder.cpp in Sources */,
 				F35865DE2E7A882A064F0148 /* RunningBackground.cpp in Sources */,
 				004685BFE3E713C2E18BFF54 /* Tracker.cpp in Sources */,

@@ -21,7 +21,7 @@ class HandRecognizer{
         ofVideoGrabber webcam;
         ofxCvColorImage rgb,hsb;
         ofxCvGrayscaleImage hue,sat,bri,filtered;
-        ofxCvContourFinder contours;
+        ofxCv::ContourFinder contours;
         int w,h;
         int findHue;
     
