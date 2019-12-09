@@ -87,10 +87,16 @@ Gesture HandRecognizer::getGesture(){
         }*/
         //else
         if (contours.blobs[i].centroid.x < w / 2){
-            return Gesture::ROCK;
+            return Gesture::WEST;
         }
         else if (contours.blobs[i].centroid.x > w / 2){
-            return Gesture::SCISSORS;
+            return Gesture::EAST;
+        }
+        else if (contours.blobs[i].centroid.y > w / 2){
+            return Gesture::NORTH;
+        }
+        else if (contours.blobs[i].centroid.y < w / 2){
+            return Gesture::SOUTH;
         }
     }
 }

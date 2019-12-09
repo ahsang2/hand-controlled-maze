@@ -15,7 +15,7 @@
 
 #endif /* hand_recognizer_hpp */
 
-enum Gesture { ROCK, PAPER, SCISSORS};
+enum Gesture { WEST, EAST, NORTH, SOUTH};
 
 // https://sites.google.com/site/ofauckland/examples/10-testing
 class HandRecognizer{

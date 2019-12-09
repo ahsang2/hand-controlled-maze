@@ -6,7 +6,13 @@ using namespace snakelinkedlist;
 
 // Setup method
 void ofApp::setup() {
-    ofSetWindowTitle("Snake126");
+    current_state_ = START;
+    title_font.load("BD.TTF", 80);
+    sub_font.load("riffic.otf", 42);
+    
+    recognizer.setup();
+    ofSetBackgroundColor(200,200,200);
+    ofSetWindowTitle("Snake by Hand");
 
     srand(static_cast<unsigned>(time(0)));  // Seed random with current time
 }
@@ -25,6 +31,9 @@ so:
 of the game
 */
 void ofApp::update() {
+    recognizer.update();
+    gesture = recognizer.getGesture();
+    
     if (should_update_) {
         if (current_state_ == IN_PROGRESS) {
             ofVec2f snake_body_size = game_snake_.getBodySize();
@@ -42,6 +51,8 @@ void ofApp::update() {
                 current_state_ = FINISHED;
             }
         }
+        
+        processGesture();
     }
 
     should_update_ = true;
@@ -54,11 +65,47 @@ Draws the current state of the game with the following logic
 3. Draw the current position of the food and of the snake
 */
 void ofApp::draw() {
-    if (current_state_ == PAUSED) {
-        drawGamePaused();
-    } else if (current_state_ == FINISHED) {
-        drawGameOver();
+    switch(current_state_) {
+        case(START):
+            title_font.drawString("Rock Paper Scissors", 40, 100);
+            sub_font.drawString("Press Space To Start", 220, 600);
+            return;
+            
+        case(IN_PROGRESS): {
+            
+            recognizer.draw();
+            break;
+            /*
+            ofSetColor(130, 100, 70);
+            drawGameDisplay();
+            sub_font.drawString("Rock", 200, 100);
+            recognizer.draw();
+            if(gesture == ROCK) {
+                ofDrawBitmapString("rock", 120, 300);
+            }
+            if(gesture == PAPER) {
+                ofDrawBitmapString("paper", 120, 300);
+            }
+            if(gesture == SCISSORS) {
+                ofDrawBitmapString("scissors", 120, 300);
+            }
+            break;*/
+            
+        }
+            
+        case(PAUSED):
+            drawGamePaused();
+            title_font.drawString("Paused", 267, 450);
+            break;
+            
+        case(FINISHED):
+            drawGameOver();
+            break;
+            
+        default:
+            break;
     }
+    
     drawFood();
     drawSnake();
 }
@@ -78,17 +125,24 @@ and eating itself) Update direction of snake and force a game update (see
 ofApp.h for why)
 */
 void ofApp::keyPressed(int key) {
-    if (key == OF_KEY_F12) {
+    int upper_key = toupper(key);
+    
+    if (upper_key == OF_KEY_F12) {
         ofToggleFullscreen();
         return;
     }
-
-    int upper_key = toupper(key);  // Standardize on upper case
-
-    if (upper_key == 'P' && current_state_ != FINISHED) {
-        // Pause or unpause
-        current_state_ = (current_state_ == IN_PROGRESS) ? PAUSED : IN_PROGRESS;
-    } else if (current_state_ == IN_PROGRESS) {
+    if(current_state_ != START && upper_key == 'P')
+    {
+        current_state_ = PAUSED;
+    }
+    else if(key == ' ') {
+        current_state_ = IN_PROGRESS;
+    }
+    else if(current_state_ == PAUSED) {
+        current_state_ = IN_PROGRESS;
+    }
+    
+     if (current_state_ == IN_PROGRESS) {
         SnakeDirection current_direction = game_snake_.getDirection();
 
         // If current direction has changed to a valid new one, force an
@@ -98,7 +152,7 @@ void ofApp::keyPressed(int key) {
             game_snake_.setDirection(UP);
             update();
             should_update_ = false;
-        } else if (upper_key == 'A' && current_direction != RIGHT &&
+        } else if (gesture == WEST && current_direction != RIGHT &&
                    current_direction != LEFT) {
             game_snake_.setDirection(LEFT);
             update();
@@ -108,13 +162,14 @@ void ofApp::keyPressed(int key) {
             game_snake_.setDirection(DOWN);
             update();
             should_update_ = false;
-        } else if (upper_key == 'D' && current_direction != LEFT &&
+        } else if (gesture == EAST && current_direction != LEFT &&
                    current_direction != RIGHT) {
             game_snake_.setDirection(RIGHT);
             update();
             should_update_ = false;
         }
-    } else if (upper_key == 'R' && current_state_ == FINISHED) {
+    }
+     else if (upper_key == 'R' && current_state_ == FINISHED) {
         reset();
     }
 }
@@ -164,4 +219,17 @@ void ofApp::drawGamePaused() {
     ofSetColor(0, 0, 0);
     ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
                        ofGetWindowHeight() / 2);
+}
+
+void ofApp::mousePressed(int x, int y, int button){
+    recognizer.mousePressed(x, y, button);
+}
+
+void ofApp::processGesture() {
+    if(gesture == EAST) {
+      //  cout << "left" << endl;
+    }
+    if(gesture == WEST) {
+      //  cout << "right" << endl;
+    }
 }
