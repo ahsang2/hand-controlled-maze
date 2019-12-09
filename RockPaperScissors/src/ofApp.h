@@ -7,14 +7,15 @@
 #include "ofMain.h"
 #include "snake.h"
 #include "hand_recognizer.h"
+#include "maze_map.h"
 
-namespace snakelinkedlist {
+namespace maze {
 
 // Enum to represent the current state of the game
 enum GameState {START = 0, IN_PROGRESS, PAUSED, FINISHED };
 
 
-class ofApp : public ofBaseApp {
+class Maze : public ofBaseApp {
 private:
     GameState current_state_;  // The current state of the game, used to determine
                         // possible actions
@@ -45,7 +46,7 @@ private:
     ofTrueTypeFont sub_font;
     HandRecognizer recognizer;
     Gesture gesture;
-
+    ofEasyCam cam;
 
 public:
     // Function used for one time setup

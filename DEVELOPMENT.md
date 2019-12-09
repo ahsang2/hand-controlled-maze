@@ -52,3 +52,7 @@ I may try to revisit this in the future: here's what I tried: The following link
 
 **December 8**
 -[X] got snake game to work with hand movements
+
+**December 9**
+-[X] debugging code
+-[ ] creating maze game

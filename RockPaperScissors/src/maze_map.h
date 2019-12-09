@@ -1,13 +1,23 @@
 //
-//  maze_map.hpp
+//  maze_map.h
 //  RockPaperScissors
 //
 //  Created by Ahsan Gilani on 12/9/19.
 //
 
-#ifndef maze_map_hpp
-#define maze_map_hpp
+#pragma once
 
-#include <stdio.h>
 
-#endif /* maze_map_hpp */
+namespace maze {
+
+class MazeMap{
+    private:
+      
+       
+    
+    public:
+        unsigned char maze[41][21];
+        void generateGrid();
+    
+};
+}

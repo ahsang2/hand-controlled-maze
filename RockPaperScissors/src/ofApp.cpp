@@ -2,17 +2,20 @@
 
 #include <iostream>
 
-using namespace snakelinkedlist;
+using namespace maze;
+
+
+const char HEIGHT = 21, WIDTH = 41;
 
 // Setup method
-void ofApp::setup() {
+void Maze::setup() {
     current_state_ = START;
     title_font.load("BD.TTF", 80);
     sub_font.load("riffic.otf", 42);
     
     recognizer.setup();
     ofSetBackgroundColor(200,200,200);
-    ofSetWindowTitle("Snake by Hand");
+    ofSetWindowTitle("Maze by Hand");
 
     srand(static_cast<unsigned>(time(0)));  // Seed random with current time
 }
@@ -30,7 +33,7 @@ so:
 4. Check to see if the snakes new position has resulted in its death and the end
 of the game
 */
-void ofApp::update() {
+void Maze::update() {
     recognizer.update();
     gesture = recognizer.getGesture();
     
@@ -64,7 +67,7 @@ Draws the current state of the game with the following logic
 2. If the game is finished draw the game over screen and final score
 3. Draw the current position of the food and of the snake
 */
-void ofApp::draw() {
+void Maze::draw() {
     switch(current_state_) {
         case(START):
             title_font.drawString("Rock Paper Scissors", 40, 100);
@@ -124,7 +127,7 @@ snake) and current_direction is not opposite of dir (Prevents the snake turning
 and eating itself) Update direction of snake and force a game update (see
 ofApp.h for why)
 */
-void ofApp::keyPressed(int key) {
+void Maze::keyPressed(int key) {
     int upper_key = toupper(key);
     
     if (upper_key == OF_KEY_F12) {
@@ -174,23 +177,24 @@ void ofApp::keyPressed(int key) {
     }
 }
 
-void ofApp::reset() {
+void Maze::windowResized(int w, int h) {
+    game_food_.resize(w, h);
+    game_snake_.resize(w, h);
+}
+
+//-------------------Helper methods---------------------
+void Maze::reset() {
     game_snake_ = Snake();
     game_food_.rebase();
     current_state_ = IN_PROGRESS;
 }
 
-void ofApp::windowResized(int w, int h) {
-    game_food_.resize(w, h);
-    game_snake_.resize(w, h);
-}
-
-void ofApp::drawFood() {
+void Maze::drawFood() {
     ofSetColor(game_food_.getColor());
     ofDrawRectangle(game_food_.getFoodRect());
 }
 
-void ofApp::drawSnake() {
+void Maze::drawSnake() {
     ofVec2f snake_body_size = game_snake_.getBodySize();
     ofVec2f head_pos = game_snake_.getHead()->position;
     ofSetColor(game_snake_.getHead()->color);
@@ -206,7 +210,7 @@ void ofApp::drawSnake() {
     }
 }
 
-void ofApp::drawGameOver() {
+void Maze::drawGameOver() {
     string total_food = std::to_string(game_snake_.getFoodEaten());
     string lose_message = "You Lost! Final Score: " + total_food;
     ofSetColor(0, 0, 0);
@@ -214,18 +218,18 @@ void ofApp::drawGameOver() {
                        ofGetWindowHeight() / 2);
 }
 
-void ofApp::drawGamePaused() {
+void Maze::drawGamePaused() {
     string pause_message = "P to Unpause!";
     ofSetColor(0, 0, 0);
     ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
                        ofGetWindowHeight() / 2);
 }
 
-void ofApp::mousePressed(int x, int y, int button){
+void Maze::mousePressed(int x, int y, int button){
     recognizer.mousePressed(x, y, button);
 }
 
-void ofApp::processGesture() {
+void Maze::processGesture() {
     if(gesture == EAST) {
       //  cout << "left" << endl;
     }

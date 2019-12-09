@@ -1,19 +1,15 @@
 //
-//  hand_recognizer.hpp
+//  hand_recognizer.h
 //  RockPaperScissors
 //
 //  Created by Ahsan Gilani on 12/4/19.
 //
 
+#pragma once
+
 #include "ofCamera.h"
 #include "ofxOpenCv.h"
 
-#ifndef hand_recognizer_hpp
-#define hand_recognizer_hpp
-
-
-
-#endif /* hand_recognizer_hpp */
 
 enum Gesture { WEST, EAST, NORTH, SOUTH};
 
