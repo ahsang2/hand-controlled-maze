@@ -1,120 +1,133 @@
 #include "ofApp.h"
 
-using namespace std;
+#include <iostream>
+
 using namespace snakelinkedlist;
 
-//--------------------------------------------------------------
-void ofApp::setup(){
-    cur_state = STARTING;
-    title_font.load("BD.TTF", 80);
-    sub_font.load("riffic.otf", 42);
-    
-    recognizer.setup();
+// Setup method
+void ofApp::setup() {
+    ofSetWindowTitle("Snake126");
+
+    srand(static_cast<unsigned>(time(0)));  // Seed random with current time
 }
 
-//--------------------------------------------------------------
-void ofApp::update(){
-    recognizer.update();
-    gesture = recognizer.getGesture();
-}
+/*
+Update function called before every draw
+If the function should update when it is called it will:
+1. Check to see if the game is in progress, if it is paused or over it should
+not update.
+2. Check to see if the current head of the snake intersects the food pellet. If
+so:
+    * The snake should grow by length 1 in its current direction
+    * The food should be moved to a new random location
+3. Update the snake in the current direction it is moving
+4. Check to see if the snakes new position has resulted in its death and the end
+of the game
+*/
+void ofApp::update() {
+    if (should_update_) {
+        if (current_state_ == IN_PROGRESS) {
+            ofVec2f snake_body_size = game_snake_.getBodySize();
+            ofVec2f head_pos = game_snake_.getHead()->position;
+            ofRectangle snake_rect(head_pos.x, head_pos.y, snake_body_size.x,
+                                   snake_body_size.y);
 
-//--------------------------------------------------------------
-void ofApp::draw(){
-    
-    switch(cur_state) {
-        case(STARTING):
-            title_font.drawString("Rock Paper Scissors", 40, 100);
-            sub_font.drawString("Press Space To Start", 220, 600);
-            break;
-            
-        case(PLAYING): {
-            ofSetColor(130, 100, 70);
-            //drawGameDisplay();
-            sub_font.drawString("Rock", 200, 100);
-            recognizer.draw();
-            if(gesture == ROCK) {
-                ofDrawBitmapString("left", 120, 300);
+            if (snake_rect.intersects(game_food_.getFoodRect())) {
+                game_snake_.eatFood(game_food_.getColor());
+                game_food_.rebase();
             }
-            if(gesture == SCISSORS) {
-                ofDrawBitmapString("right", 120, 300);
+            game_snake_.update();
+
+            if (game_snake_.isDead()) {
+                current_state_ = FINISHED;
             }
-            break;
         }
-            
-        case(PAUSED):
-            title_font.drawString("Paused", 267, 450);
-            
-        default:
-            break;
+    }
+
+    should_update_ = true;
+}
+
+/*
+Draws the current state of the game with the following logic
+1. If the game is paused draw the pause screen
+2. If the game is finished draw the game over screen and final score
+3. Draw the current position of the food and of the snake
+*/
+void ofApp::draw() {
+    if (current_state_ == PAUSED) {
+        drawGamePaused();
+    } else if (current_state_ == FINISHED) {
+        drawGameOver();
+    }
+    drawFood();
+    drawSnake();
+}
+
+/*
+Function that handles actions based on user key presses
+1. if key == F12, toggle fullscreen
+2. if key == p and game is not over, toggle pause
+3. if game is in progress handle WASD action
+4. if key == r and game is over reset it
+
+WASD logic:
+Let dir be the direction that corresponds to a key
+if current direction is not dir (Prevents key spamming to rapidly update the
+snake) and current_direction is not opposite of dir (Prevents the snake turning
+and eating itself) Update direction of snake and force a game update (see
+ofApp.h for why)
+*/
+void ofApp::keyPressed(int key) {
+    if (key == OF_KEY_F12) {
+        ofToggleFullscreen();
+        return;
+    }
+
+    int upper_key = toupper(key);  // Standardize on upper case
+
+    if (upper_key == 'P' && current_state_ != FINISHED) {
+        // Pause or unpause
+        current_state_ = (current_state_ == IN_PROGRESS) ? PAUSED : IN_PROGRESS;
+    } else if (current_state_ == IN_PROGRESS) {
+        SnakeDirection current_direction = game_snake_.getDirection();
+
+        // If current direction has changed to a valid new one, force an
+        // immediate update and skip the next frame update
+        if (upper_key == 'W' && current_direction != DOWN &&
+            current_direction != UP) {
+            game_snake_.setDirection(UP);
+            update();
+            should_update_ = false;
+        } else if (upper_key == 'A' && current_direction != RIGHT &&
+                   current_direction != LEFT) {
+            game_snake_.setDirection(LEFT);
+            update();
+            should_update_ = false;
+        } else if ((upper_key == 'S') && current_direction != UP &&
+                   current_direction != DOWN) {
+            game_snake_.setDirection(DOWN);
+            update();
+            should_update_ = false;
+        } else if (upper_key == 'D' && current_direction != LEFT &&
+                   current_direction != RIGHT) {
+            game_snake_.setDirection(RIGHT);
+            update();
+            should_update_ = false;
+        }
+    } else if (upper_key == 'R' && current_state_ == FINISHED) {
+        reset();
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-    if(cur_state != STARTING && key == 'p')
-       {
-           cur_state = PAUSED;
-       }
-       else if(key == ' ') {
-           cur_state = PLAYING;
-       }
-       else if(cur_state == PAUSED) {
-           cur_state = PLAYING;
-       }
+void ofApp::reset() {
+    game_snake_ = Snake();
+    game_food_.rebase();
+    current_state_ = IN_PROGRESS;
 }
 
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-    recognizer.mousePressed(x, y, button);
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-
-}
-
-void ofApp::drawGameDisplay(){
-    //draw
+void ofApp::windowResized(int w, int h) {
+    game_food_.resize(w, h);
+    game_snake_.resize(w, h);
 }
 
 void ofApp::drawFood() {
@@ -151,10 +164,4 @@ void ofApp::drawGamePaused() {
     ofSetColor(0, 0, 0);
     ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
                        ofGetWindowHeight() / 2);
-}
-
-void ofApp::reset() {
-    game_snake_ = Snake();
-    game_food_.rebase();
-    cur_state = IN_PROGRESS;
 }

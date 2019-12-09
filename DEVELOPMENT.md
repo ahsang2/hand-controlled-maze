@@ -41,8 +41,14 @@ I may try to revisit this in the future: here's what I tried: The following link
 - [X] Decided to change the game to a maze controlled by hand movements
 
 **December 6**
-- [] Improving hand tracking (adding classifying by velocity to change direction)
-- [] Getting snake game to work with my hand tracker so I can make sure the controls work via the webcam
+- [ ] Improving hand tracking (adding classifying by velocity to change direction)
+- [ ] Getting snake game to work with my hand tracker so I can make sure the controls work via the webcam
 
 **December 7**
-- [] Continuing yesterdays tasks, specifcally --> switched to other ContourFinder and doing research on how to detect movement and find the velocity of where the "blob" moved
+- [ ] Continuing yesterdays tasks, specifcally --> switched to other ContourFinder and doing research on how to detect movement and find the velocity of where the "blob" moved
+- [ ] Tried using velocity tracking for contours, but its hard to know if im going in the right or wrong direction since I don't know exactly what the countour finder is doing and what I'm changing.
+
+**I've spent hours trying to figure this out and improve it, I'm going to push my velocity work to another branch and continue trying to get snake to work.
+
+**December 8**
+-[X] got snake game to work with hand movements

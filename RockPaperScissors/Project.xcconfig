@@ -3,6 +3,7 @@
 OF_PATH = ../../../Downloads/of_v20191120_osx_release
 
 //THIS HAS ALL THE HEADER AND LIBS FOR OF CORE
+
 #include "../../../Downloads/of_v20191120_osx_release/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig"
 
 //ICONS - NEW IN 0072 

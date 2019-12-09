@@ -53,19 +53,17 @@ void HandRecognizer::update(){
         filtered.flagImageChanged();
 
         //run the contour finder on the filtered image to find blobs with a certain hue
-     //   contours.findContours(filtered, 100, w*h/2, 1, false);
-        contours.findContours(webcam);
+        contours.findContours(filtered, 100, w*h/2, 1, false);
     }
 }
 
 void HandRecognizer::draw(){
-   
     ofSetColor(255,255,255);
     
     //draw all cv images
     rgb.draw(0,0);
 
-    contours.draw();
+    contours.draw(0,0);
 }
 
 void HandRecognizer::mousePressed(int x, int y, int button) {
@@ -79,51 +77,20 @@ void HandRecognizer::mousePressed(int x, int y, int button) {
 }
 
 Gesture HandRecognizer::getGesture(){
-    /*
-    for (int i=0; i<contours.size(); i++) {
+    for (int i=0; i<contours.nBlobs; i++) {
         int x = 0;
         int y = 0;
         int height = 0;
         
-        if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
+      /*  if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
             return Gesture::PAPER;
         }*/
         //else
-        /*
-        ofPoint center;
-        ofPoint currentCentroid = ofxCv::toOf(contours.getCentroid(i));
-        if (currentCentroid.x < w / 2){
+        if (contours.blobs[i].centroid.x < w / 2){
             return Gesture::ROCK;
         }
-        else if (currentCentroid.x > w / 2){
+        else if (contours.blobs[i].centroid.x > w / 2){
             return Gesture::SCISSORS;
         }
     }
-         */
-        ofVec2f velocity;
-        velocity.x = 0; velocity.y = 0;
-        for (int i = 0; i < contours.size(); i++) {
-            ofVec2f currentVelocity = ofxCv::toOf(contours.getVelocity(i));
-            if (velocity.x >= 20) {
-                   
-                   return Gesture::ROCK;
-            
-               } else if (velocity.x <= -20) {
-                   
-                   return Gesture::SCISSORS;
-             
-               } else if (velocity.y >= 20) {
-                   //std::cout << "DOWN" << std::endl;
-               } else if (velocity.y <= -20) {
-                   //std::cout << "UP" << std::endl;
-               }
-               else {
-                   std::cout << "NOPE" << std::endl;
-               }
-        }
-    
-        
-    
-    
-        
 }

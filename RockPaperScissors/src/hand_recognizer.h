@@ -4,14 +4,16 @@
 //
 //  Created by Ahsan Gilani on 12/4/19.
 //
-#pragma once
 
 #include "ofCamera.h"
 #include "ofxOpenCv.h"
-#include <stdio.h>
-#include "ofxCv.h"
-#include "ofxGui.h"
 
+#ifndef hand_recognizer_hpp
+#define hand_recognizer_hpp
+
+
+
+#endif /* hand_recognizer_hpp */
 
 enum Gesture { ROCK, PAPER, SCISSORS};
 
@@ -21,7 +23,7 @@ class HandRecognizer{
         ofVideoGrabber webcam;
         ofxCvColorImage rgb,hsb;
         ofxCvGrayscaleImage hue,sat,bri,filtered;
-        ofxCv::ContourFinder contours;
+        ofxCvContourFinder contours;
         int w,h;
         int findHue;
     
