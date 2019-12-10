@@ -18,7 +18,7 @@ void Maze::setup() {
     ofSetWindowTitle("Maze by Hand");
 
     srand(static_cast<unsigned>(time(0)));  // Seed random with current time
-    cam.setDistance(150);
+    virtual_cam.setDistance(150);
     cur_map.generateGrid();
     cur_map.posX = 7;
     cur_map.posY = 19;
@@ -76,13 +76,13 @@ Draws the current state of the game with the following logic
 void Maze::draw() {
     switch(current_state_) {
         case(START):
-            title_font.drawString("Rock Paper Scissors", 40, 100);
+            title_font.drawString("The Maze Game", 40, 100);
             sub_font.drawString("Press Space To Start", 220, 600);
             return;
             
         case(IN_PROGRESS): {
       
-            cam.begin();
+            virtual_cam.begin();
             //recognizer.draw();
             for(int y=0 ; y< HEIGHT ; y++){
                 for(int x=0 ; x< WIDTH ; x++){
@@ -99,11 +99,6 @@ void Maze::draw() {
                         ofBox(4);
                         ofPopMatrix();
                     }
-                    
-                    
-
-                   
-    
                     
                     if (cur_map.map[x][y] == '#'){
                         
@@ -139,7 +134,7 @@ void Maze::draw() {
             ofBox(4);
             ofPopMatrix();
             
-            cam.end();
+            virtual_cam.end();
             break;
                      
                     //Declare color
@@ -291,8 +286,8 @@ void Maze::keyPressed(int key) {
                 
             case 'M':
             case 'm':
-                if(cam.getMouseInputEnabled()) cam.disableMouseInput();
-                else cam.enableMouseInput();
+                if(virtual_cam.getMouseInputEnabled()) virtual_cam.disableMouseInput();
+                else virtual_cam.enableMouseInput();
                 break;
                 
             case 'F':

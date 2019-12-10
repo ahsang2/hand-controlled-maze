@@ -30,9 +30,6 @@
 		AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5035F23987B650081FBA3 /* classifying-test.cpp */; };
 		AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */; };
 		AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* ofApp.cpp */; };
-		AFD5037C239DC5260081FBA3 /* SnakeFood.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50375239DC5250081FBA3 /* SnakeFood.cpp */; };
-		AFD5037D239DC5260081FBA3 /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50377239DC5250081FBA3 /* snake.cpp */; };
-		AFD5037E239DC5260081FBA3 /* snakebody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037A239DC5250081FBA3 /* snakebody.cpp */; };
 		AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037F239EAAD00081FBA3 /* maze_map.cpp */; };
 		AFD50384239ED9820081FBA3 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50382239ED9820081FBA3 /* player.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
@@ -412,14 +409,6 @@
 		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
 		AFD503652398C61A0081FBA3 /* hand_recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hand_recognizer.h; sourceTree = "<group>"; };
 		AFD50372239AF67E0081FBA3 /* ofApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
-		AFD50374239DC5250081FBA3 /* SnakeFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnakeFood.h; path = "../../../serious-snakes-ahsang2/src/SnakeFood.h"; sourceTree = "<group>"; };
-		AFD50375239DC5250081FBA3 /* SnakeFood.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SnakeFood.cpp; path = "../../../serious-snakes-ahsang2/src/SnakeFood.cpp"; sourceTree = "<group>"; };
-		AFD50376239DC5250081FBA3 /* ll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ll.h; path = "../../../serious-snakes-ahsang2/src/ll.h"; sourceTree = "<group>"; };
-		AFD50377239DC5250081FBA3 /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = snake.cpp; path = "../../../serious-snakes-ahsang2/src/snake.cpp"; sourceTree = "<group>"; };
-		AFD50378239DC5250081FBA3 /* snakebody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = snakebody.h; path = "../../../serious-snakes-ahsang2/src/snakebody.h"; sourceTree = "<group>"; };
-		AFD50379239DC5250081FBA3 /* snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = snake.h; path = "../../../serious-snakes-ahsang2/src/snake.h"; sourceTree = "<group>"; };
-		AFD5037A239DC5250081FBA3 /* snakebody.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = snakebody.cpp; path = "../../../serious-snakes-ahsang2/src/snakebody.cpp"; sourceTree = "<group>"; };
-		AFD5037B239DC5250081FBA3 /* ll.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ll.hpp; path = "../../../serious-snakes-ahsang2/src/ll.hpp"; sourceTree = "<group>"; };
 		AFD5037F239EAAD00081FBA3 /* maze_map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = maze_map.cpp; sourceTree = "<group>"; };
 		AFD50380239EAAD00081FBA3 /* maze_map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = maze_map.h; sourceTree = "<group>"; };
 		AFD50382239ED9820081FBA3 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
@@ -2184,14 +2173,6 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AFD50376239DC5250081FBA3 /* ll.h */,
-				AFD5037B239DC5250081FBA3 /* ll.hpp */,
-				AFD50377239DC5250081FBA3 /* snake.cpp */,
-				AFD50379239DC5250081FBA3 /* snake.h */,
-				AFD5037A239DC5250081FBA3 /* snakebody.cpp */,
-				AFD50378239DC5250081FBA3 /* snakebody.h */,
-				AFD50375239DC5250081FBA3 /* SnakeFood.cpp */,
-				AFD50374239DC5250081FBA3 /* SnakeFood.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				AFD50372239AF67E0081FBA3 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -2442,8 +2423,6 @@
 				4F8AD734CF1583A661B67747 /* ofxCvShortImage.cpp in Sources */,
 				763813DAC064424DDC91FD46 /* ETF.cpp in Sources */,
 				13D630293D3AC33439338836 /* fdog.cpp in Sources */,
-				AFD5037D239DC5260081FBA3 /* snake.cpp in Sources */,
-				AFD5037E239DC5260081FBA3 /* snakebody.cpp in Sources */,
 				DB1B5552EB5030AE05780306 /* Calibration.cpp in Sources */,
 				EC60B5105C8176C958BE970F /* ContourFinder.cpp in Sources */,
 				CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */,
@@ -2466,7 +2445,6 @@
 				F070CA439C8B7647FFF306B2 /* ofxLabel.cpp in Sources */,
 				7C7CB13CCEEA70E62A8FE4C8 /* ofxPanel.cpp in Sources */,
 				4F6C9D5B2666C0538C22CAE0 /* ofxSlider.cpp in Sources */,
-				AFD5037C239DC5260081FBA3 /* SnakeFood.cpp in Sources */,
 				321D8BB069E0EB6BEF26BA14 /* ofxSliderGroup.cpp in Sources */,
 				49A7E90F3FB33DB967932317 /* ofxToggle.cpp in Sources */,
 				AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */,

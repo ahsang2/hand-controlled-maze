@@ -3,10 +3,8 @@
 #include <ctime>
 #include <utility>
 
-#include "SnakeFood.h"
 #include "ofMain.h"
 #include "maze_map.h"
-#include "snake.h"
 #include "hand_recognizer.h"
 
 
@@ -20,12 +18,9 @@ class Maze : public ofBaseApp {
 private:
     GameState current_state_;  // The current state of the game, used to determine
                         // possible actions
-    Snake game_snake_;  // The object that represents the user controlled snake
-    SnakeFood game_food_;  // The object that represents the food pellet the
-                           // user is attempting to eat with the snake
+    
 
-    bool should_update_ =
-        true;  // A flag boolean used in the update() function. Due to the frame
+    bool should_update_ = true;  // A flag boolean used in the update() function. Due to the frame
                // dependent animation we've written, and the relatively low
                // framerate, a bug exists where users can prefire direction
                // changes faster than a frame update. Our solution is to force a
@@ -47,7 +42,7 @@ private:
     ofTrueTypeFont sub_font;
     HandRecognizer recognizer;
     Gesture gesture;
-    ofEasyCam cam;
+    ofEasyCam virtual_cam;
     MazeMap cur_map;
 
 public:
