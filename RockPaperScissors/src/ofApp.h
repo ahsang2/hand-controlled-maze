@@ -5,9 +5,10 @@
 
 #include "SnakeFood.h"
 #include "ofMain.h"
+#include "maze_map.h"
 #include "snake.h"
 #include "hand_recognizer.h"
-#include "maze_map.h"
+
 
 namespace maze {
 
@@ -47,6 +48,7 @@ private:
     HandRecognizer recognizer;
     Gesture gesture;
     ofEasyCam cam;
+    MazeMap cur_map;
 
 public:
     // Function used for one time setup

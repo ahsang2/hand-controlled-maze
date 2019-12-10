@@ -5,7 +5,7 @@
 using namespace maze;
 
 
-const char HEIGHT = 21, WIDTH = 41;
+const int HEIGHT = 21, WIDTH = 41;
 
 // Setup method
 void Maze::setup() {
@@ -18,6 +18,12 @@ void Maze::setup() {
     ofSetWindowTitle("Maze by Hand");
 
     srand(static_cast<unsigned>(time(0)));  // Seed random with current time
+    cam.setDistance(150);
+    cur_map.generateGrid();
+    cur_map.posX = 7;
+    cur_map.posY = 19;
+    cur_map.exitPosX = 39;
+    cur_map.exitPosY = -19;
 }
 
 /*
@@ -36,7 +42,7 @@ of the game
 void Maze::update() {
     recognizer.update();
     gesture = recognizer.getGesture();
-    
+    /*
     if (should_update_) {
         if (current_state_ == IN_PROGRESS) {
             ofVec2f snake_body_size = game_snake_.getBodySize();
@@ -58,7 +64,7 @@ void Maze::update() {
         processGesture();
     }
 
-    should_update_ = true;
+    should_update_ = true;*/
 }
 
 /*
@@ -75,9 +81,84 @@ void Maze::draw() {
             return;
             
         case(IN_PROGRESS): {
-            
-            recognizer.draw();
+      
+            cam.begin();
+            //recognizer.draw();
+            for(int y=0 ; y< HEIGHT ; y++){
+                for(int x=0 ; x< WIDTH ; x++){
+                    /*
+                    if (cur_map.map[x][y] == ' ') {
+                        title_font.drawString("maze", 40, 100);
+                        ofPushMatrix();
+                        ofTranslate(cur_map.exitPosX * 5 - 100, cur_map.exitPosY * 5 + 50,1);
+                        ofSetColor(255, 0, 0);
+                        ofFill();
+                        ofBox(4);
+                        ofNoFill();
+                        ofSetColor(0);
+                        ofBox(4);
+                        ofPopMatrix();
+                    }
+                    
+                    
+
+                   
+    
+                    
+                    if (cur_map.map[x][y] == '#'){
+                        
+                        ofPushMatrix();
+                        ofTranslate(x*5-100,-y*5+50,0);
+                        ofSetColor(63.0,63.0,63.0);
+                        ofFill();
+                        ofBox(5);
+                        ofNoFill();
+                        ofSetColor(0);
+                        ofBox(5);
+                        ofPopMatrix();
+                    }
+                    
+                    ofPushMatrix();
+                    ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
+                    ofSetColor(255,255,255);
+                    ofFill();
+                    ofBox(4);
+                    ofNoFill();
+                    ofSetColor(0);
+                    ofBox(4);
+                    ofPopMatrix();
+
+                    
+                   // cout << cur_map.map[x][y];
+                     */
+                    ofColor c;
+
+                    switch (cur_map.map[x][y])
+                    {
+                    case ' ':
+                        c.r = 255;
+                        c.g = 0;
+                        c.b = 0;
+                        break;
+                    case '#':
+                        c.r = 0;
+                        c.g = 255;
+                        c.b = 0;
+                        break;
+                    }
+
+                    ofSetColor(c);
+                    ofDrawRectangle((x * 11) + 11/2, (y * 11) + 11/2, 11, 11);
+                    
+
+                }
+              //  cout << endl;
+            }
+            cam.end();
             break;
+                     
+                    //Declare color
+                                       
             /*
             ofSetColor(130, 100, 70);
             drawGameDisplay();
@@ -91,8 +172,9 @@ void Maze::draw() {
             }
             if(gesture == SCISSORS) {
                 ofDrawBitmapString("scissors", 120, 300);
-            }
-            break;*/
+            }*/
+                    
+                   
             
         }
             
@@ -109,8 +191,8 @@ void Maze::draw() {
             break;
     }
     
-    drawFood();
-    drawSnake();
+    //drawFood();
+    //drawSnake();
 }
 
 /*
@@ -128,13 +210,12 @@ and eating itself) Update direction of snake and force a game update (see
 ofApp.h for why)
 */
 void Maze::keyPressed(int key) {
-    int upper_key = toupper(key);
     
-    if (upper_key == OF_KEY_F12) {
+    if (key == OF_KEY_F12) {
         ofToggleFullscreen();
         return;
     }
-    if(current_state_ != START && upper_key == 'P')
+    if(current_state_ != START && key == 'p')
     {
         current_state_ = PAUSED;
     }
@@ -144,7 +225,7 @@ void Maze::keyPressed(int key) {
     else if(current_state_ == PAUSED) {
         current_state_ = IN_PROGRESS;
     }
-    
+    /*
      if (current_state_ == IN_PROGRESS) {
         SnakeDirection current_direction = game_snake_.getDirection();
 
@@ -175,7 +256,50 @@ void Maze::keyPressed(int key) {
      else if (upper_key == 'R' && current_state_ == FINISHED) {
         reset();
     }
-}
+    */
+    if(current_state_ == IN_PROGRESS) {
+        
+    switch(key) {
+            case 'a':
+                //move left
+                if (cur_map.map[cur_map.posX-1][cur_map.posY] != '#') {
+                    cur_map.posX--;
+                }
+                break;
+            case 'd':
+                //move right
+                if (cur_map.map[cur_map.posX+1][cur_map.posY] != '#') {
+                    cur_map.posX++;
+                }
+                break;
+            case 'w':
+                //move up
+                if (cur_map.map[cur_map.posX][cur_map.posY-1] != '#') {
+                    cur_map.posY--;;
+                }
+                break;
+            case 's':
+                //move down
+                if (cur_map.map[cur_map.posX][cur_map.posY+1] != '#') {
+                    cur_map.posY++;
+                }
+                break;
+                
+            case 'M':
+            case 'm':
+                if(cam.getMouseInputEnabled()) cam.disableMouseInput();
+                else cam.enableMouseInput();
+                break;
+                
+            case 'F':
+            case 'f':
+                ofToggleFullscreen();
+                break;
+        }
+    }
+
+    }
+
 
 void Maze::windowResized(int w, int h) {
     game_food_.resize(w, h);

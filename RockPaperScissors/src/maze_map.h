@@ -16,8 +16,15 @@ class MazeMap{
        
     
     public:
-        unsigned char maze[41][21];
+        
+        char map[41][21];
         void generateGrid();
+        int posX;
+        int posY;
+        int exitPosX;
+        int exitPosY;
+        
+
     
 };
 }

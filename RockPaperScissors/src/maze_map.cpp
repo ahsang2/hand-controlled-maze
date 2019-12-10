@@ -7,13 +7,14 @@
 
 #include "maze_map.h"
 
-const char HEIGHT = 21;
-const char WIDTH = 41;
+using namespace maze;
 
-void generateGrid() {
-    unsigned char maze[WIDTH][HEIGHT];
+const int HEIGHT = 21;
+const int WIDTH = 41;
+
+void MazeMap::generateGrid() {
     
-    unsigned char maze2[HEIGHT][WIDTH] = {
+    char maze2[HEIGHT][WIDTH] = {
         {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
         {'#',' ',' ',' ','#',' ',' ',' ',' ',' ','#',' ',' ',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ',' ',' ','#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ',' ',' ','#'},
         {'#','#','#',' ','#','#','#',' ','#',' ','#',' ','#','#','#',' ','#','#','#',' ','#','#','#','#','#',' ','#',' ','#',' ','#','#','#','#','#','#','#',' ','#',' ','#'},
@@ -40,7 +41,7 @@ void generateGrid() {
     
     for(int y=0 ; y< HEIGHT ; y++){
         for(int x=0 ; x< WIDTH ; x++){
-            maze[x][y] = maze2[y][x];
+            this->map[x][y] = maze2[y][x];
         }
     }
     
