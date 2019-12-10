@@ -76,17 +76,20 @@ Draws the current state of the game with the following logic
 void Maze::draw() {
     switch(current_state_) {
         case(START):
-            title_font.drawString("The Maze Game", 40, 100);
+            ofSetBackgroundColor(0x102178255);
+            ofSetHexColor(0x636363);
+            title_font.drawString("The Maze Game", 105, 100);
             sub_font.drawString("Press Space To Start", 220, 600);
             return;
             
         case(IN_PROGRESS): {
-      
+           // ofSetBackgroundColor(200,200,200);
+         ofSetBackgroundColor(0x102178255);
+            
             virtual_cam.begin();
-            //recognizer.draw();
             for(int y=0 ; y< HEIGHT ; y++){
                 for(int x=0 ; x< WIDTH ; x++){
-                    
+                    /*
                     if (cur_map.map[x][y] == ' ') {
                         title_font.drawString("maze", 40, 100);
                         ofPushMatrix();
@@ -98,7 +101,7 @@ void Maze::draw() {
                         ofSetColor(0);
                         ofBox(4);
                         ofPopMatrix();
-                    }
+                    }*/
                     
                     if (cur_map.map[x][y] == '#'){
                         
@@ -113,7 +116,20 @@ void Maze::draw() {
                         ofPopMatrix();
                     }
                     
+                    if (cur_map.map[x][y] == 'E') {
+                        
+                        ofPushMatrix();
+                        ofTranslate(x*5-100,-y*5+50,3);
+                        ofSetColor(153,255,153);
+                        ofFill();
+                        ofBox(5);
+                        ofNoFill();
+                        ofSetColor(0);
+                        ofBox(5);
+                        ofPopMatrix();
+                    }
                     
+                    //do first cpl, then if statements then rest for draw board
 
                     
                    // cout << cur_map.map[x][y];
@@ -301,23 +317,24 @@ void Maze::keyPressed(int key) {
 
 
 void Maze::windowResized(int w, int h) {
-    game_food_.resize(w, h);
-    game_snake_.resize(w, h);
+    //game_food_.resize(w, h);
+    //game_snake_.resize(w, h);
 }
 
 //-------------------Helper methods---------------------
 void Maze::reset() {
-    game_snake_ = Snake();
-    game_food_.rebase();
+   // game_snake_ = Snake();
+  //  game_food_.rebase();
     current_state_ = IN_PROGRESS;
 }
 
 void Maze::drawFood() {
-    ofSetColor(game_food_.getColor());
-    ofDrawRectangle(game_food_.getFoodRect());
+  //  ofSetColor(game_food_.getColor());
+   // ofDrawRectangle(game_food_.getFoodRect());
 }
 
 void Maze::drawSnake() {
+    /*
     ofVec2f snake_body_size = game_snake_.getBodySize();
     ofVec2f head_pos = game_snake_.getHead()->position;
     ofSetColor(game_snake_.getHead()->color);
@@ -330,12 +347,12 @@ void Maze::drawSnake() {
         ofSetColor(curr->color);
         ofDrawRectangle(currPos.x, currPos.y, snake_body_size.x,
                         snake_body_size.y);
-    }
+    }*/
 }
 
 void Maze::drawGameOver() {
-    string total_food = std::to_string(game_snake_.getFoodEaten());
-    string lose_message = "You Lost! Final Score: " + total_food;
+   // string total_food = std::to_string(game_snake_.getFoodEaten());
+    string lose_message = "You Lost! Final Score: " ;
     ofSetColor(0, 0, 0);
     ofDrawBitmapString(lose_message, ofGetWindowWidth() / 2,
                        ofGetWindowHeight() / 2);

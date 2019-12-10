@@ -51,17 +51,17 @@ I may try to revisit this in the future: here's what I tried: The following link
 **I've spent hours trying to figure this out and improve it, I'm going to push my velocity work to another branch and continue trying to get snake to work.
 
 **December 8**
--[X] Got snake game to work with hand movements
+- [X] Got snake game to work with hand movements
 
 **December 9**
--[X] debugging code
--[X] creating maze game
--[X] played with graphics for a long time to get maze drawn
--[X] seperated into different classes
--[X] implementing hand gestures to control --> added fast and slow mode
+- [X] debugging code
+- [X] creating maze game
+- [X] played with graphics for a long time to get maze drawn
+- [X] seperated into different classes
+- [X] implementing hand gestures to control --> added fast and slow mode
 
 **December 10**
--[ ] cleaning up code (maze methods and fast and slow mode)
--[ ] adding testing
--[ ] implementing maze generator
--[ ] wrote readme
+- [ ] cleaning up code (maze methods and fast and slow mode), magic numbers
+- [ ] adding testing
+- [ ] implementing maze generator
+- [ ] wrote readme

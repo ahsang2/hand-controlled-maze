@@ -10,8 +10,8 @@
 void HandRecognizer::setup() {
     ofBackground(0,0,0);
     
-    w = 320;
-    h = 240;
+    w = 32;
+    h = 24;
     
     webcam.initGrabber(w, h);
     
