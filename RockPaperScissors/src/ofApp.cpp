@@ -86,7 +86,7 @@ void Maze::draw() {
             //recognizer.draw();
             for(int y=0 ; y< HEIGHT ; y++){
                 for(int x=0 ; x< WIDTH ; x++){
-                    /*
+                    
                     if (cur_map.map[x][y] == ' ') {
                         title_font.drawString("maze", 40, 100);
                         ofPushMatrix();
@@ -118,42 +118,27 @@ void Maze::draw() {
                         ofPopMatrix();
                     }
                     
-                    ofPushMatrix();
-                    ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
-                    ofSetColor(255,255,255);
-                    ofFill();
-                    ofBox(4);
-                    ofNoFill();
-                    ofSetColor(0);
-                    ofBox(4);
-                    ofPopMatrix();
+                    
 
                     
                    // cout << cur_map.map[x][y];
-                     */
-                    ofColor c;
-
-                    switch (cur_map.map[x][y])
-                    {
-                    case ' ':
-                        c.r = 255;
-                        c.g = 0;
-                        c.b = 0;
-                        break;
-                    case '#':
-                        c.r = 0;
-                        c.g = 255;
-                        c.b = 0;
-                        break;
-                    }
-
-                    ofSetColor(c);
-                    ofDrawRectangle((x * 11) + 11/2, (y * 11) + 11/2, 11, 11);
+                     
+                   
                     
 
                 }
               //  cout << endl;
             }
+            ofPushMatrix();
+            ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
+            ofSetColor(255,255,255);
+            ofFill();
+            ofBox(4);
+            ofNoFill();
+            ofSetColor(0);
+            ofBox(4);
+            ofPopMatrix();
+            
             cam.end();
             break;
                      
@@ -172,7 +157,26 @@ void Maze::draw() {
             }
             if(gesture == SCISSORS) {
                 ofDrawBitmapString("scissors", 120, 300);
-            }*/
+            }
+             ofColor c;
+
+                                switch (cur_map.map[x][y])
+                                {
+                                case ' ':
+                                    c.r = 255;
+                                    c.g = 0;
+                                    c.b = 0;
+                                    break;
+                                case '#':
+                                    c.r = 0;
+                                    c.g = 255;
+                                    c.b = 0;
+                                    break;
+                                }
+
+                                ofSetColor(c);
+                                ofDrawRectangle((x * 11) + 11/2, (y * 11) + 11/2, 11, 11);
+             */
                     
                    
             
