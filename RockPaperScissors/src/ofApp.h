@@ -34,6 +34,8 @@ private:
     void drawGameOver();
     void drawGamePaused();
     void processGesture();
+    void drawWalls();
+    void drawPlayer();
 
     // Resets the game objects to their original state.
     void reset();

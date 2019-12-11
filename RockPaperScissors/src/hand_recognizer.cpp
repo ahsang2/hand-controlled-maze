@@ -10,8 +10,8 @@
 void HandRecognizer::setup() {
     ofBackground(0,0,0);
     
-    w = 32;
-    h = 24;
+    w = 320;
+    h = 240;
     
     webcam.initGrabber(w, h);
     
@@ -57,11 +57,11 @@ void HandRecognizer::update(){
     }
 }
 
-void HandRecognizer::draw(){
+void HandRecognizer::draw(int x, int y){
     ofSetColor(255,255,255);
     
     //draw all cv images
-    rgb.draw(0,0);
+    rgb.draw(x,y);
 
     contours.draw(0,0);
 }
@@ -86,16 +86,16 @@ Gesture HandRecognizer::getGesture(){
             return Gesture::PAPER;
         }*/
         //else
-        if (contours.blobs[i].centroid.x < w / 2){
+        if (contours.blobs[i].centroid.y > contours.blobs[i].centroid.x && contours.blobs[i].centroid.y < h - contours.blobs[i].centroid.x){
             return Gesture::WEST;
         }
-        else if (contours.blobs[i].centroid.x > w / 2){
+        else if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x && contours.blobs[i].centroid.y > h - contours.blobs[i].centroid.x){
             return Gesture::EAST;
         }
-        else if (contours.blobs[i].centroid.y > w / 2){
+        else if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x && contours.blobs[i].centroid.y < h - contours.blobs[i].centroid.x){
             return Gesture::NORTH;
         }
-        else if (contours.blobs[i].centroid.y < w / 2){
+        else if (contours.blobs[i].centroid.y > contours.blobs[i].centroid.x && contours.blobs[i].centroid.y > h - contours.blobs[i].centroid.x){
             return Gesture::SOUTH;
         }
     }

@@ -6,3 +6,5 @@
 //
 
 #include "player.h"
+
+using namespace maze;

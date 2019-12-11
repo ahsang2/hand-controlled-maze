@@ -10,11 +10,12 @@ const int HEIGHT = 21, WIDTH = 41;
 // Setup method
 void Maze::setup() {
     current_state_ = START;
-    title_font.load("BD.TTF", 80);
+    
+    title_font.load("crushed.TTF", 50);
     sub_font.load("riffic.otf", 42);
     
     recognizer.setup();
-    ofSetBackgroundColor(200,200,200);
+    ofSetBackgroundColor(0x102178255);
     ofSetWindowTitle("Maze by Hand");
 
     srand(static_cast<unsigned>(time(0)));  // Seed random with current time
@@ -22,8 +23,8 @@ void Maze::setup() {
     cur_map.generateGrid();
     cur_map.posX = 7;
     cur_map.posY = 19;
-    cur_map.exitPosX = 39;
-    cur_map.exitPosY = -19;
+    cur_map.exitXCor = 39;
+    cur_map.exitYCor = -19;
 }
 
 /*
@@ -42,6 +43,7 @@ of the game
 void Maze::update() {
     recognizer.update();
     gesture = recognizer.getGesture();
+    cout << gesture << endl;
     /*
     if (should_update_) {
         if (current_state_ == IN_PROGRESS) {
@@ -76,126 +78,22 @@ Draws the current state of the game with the following logic
 void Maze::draw() {
     switch(current_state_) {
         case(START):
-            ofSetBackgroundColor(0x102178255);
             ofSetHexColor(0x636363);
-            title_font.drawString("The Maze Game", 105, 100);
+            title_font.drawString("The Maze Game", 40, 100);
             sub_font.drawString("Press Space To Start", 220, 600);
             return;
             
-        case(IN_PROGRESS): {
-           // ofSetBackgroundColor(200,200,200);
-         ofSetBackgroundColor(0x102178255);
-            
+        case(IN_PROGRESS):
+            ofSetBackgroundColor(200,200,200);
             virtual_cam.begin();
-            for(int y=0 ; y< HEIGHT ; y++){
-                for(int x=0 ; x< WIDTH ; x++){
-                    /*
-                    if (cur_map.map[x][y] == ' ') {
-                        title_font.drawString("maze", 40, 100);
-                        ofPushMatrix();
-                        ofTranslate(cur_map.exitPosX * 5 - 100, cur_map.exitPosY * 5 + 50,1);
-                        ofSetColor(255, 0, 0);
-                        ofFill();
-                        ofBox(4);
-                        ofNoFill();
-                        ofSetColor(0);
-                        ofBox(4);
-                        ofPopMatrix();
-                    }*/
-                    
-                    if (cur_map.map[x][y] == '#'){
-                        
-                        ofPushMatrix();
-                        ofTranslate(x*5-100,-y*5+50,0);
-                        ofSetColor(63.0,63.0,63.0);
-                        ofFill();
-                        ofBox(5);
-                        ofNoFill();
-                        ofSetColor(0);
-                        ofBox(5);
-                        ofPopMatrix();
-                    }
-                    
-                    if (cur_map.map[x][y] == 'E') {
-                        
-                        ofPushMatrix();
-                        ofTranslate(x*5-100,-y*5+50,3);
-                        ofSetColor(153,255,153);
-                        ofFill();
-                        ofBox(5);
-                        ofNoFill();
-                        ofSetColor(0);
-                        ofBox(5);
-                        ofPopMatrix();
-                    }
-                    
-                    //do first cpl, then if statements then rest for draw board
-
-                    
-                   // cout << cur_map.map[x][y];
-                     
-                   
-                    
-
-                }
-              //  cout << endl;
-            }
-            ofPushMatrix();
-            ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
-            ofSetColor(255,255,255);
-            ofFill();
-            ofBox(4);
-            ofNoFill();
-            ofSetColor(0);
-            ofBox(4);
-            ofPopMatrix();
-            
+            drawWalls();
+            drawPlayer();
             virtual_cam.end();
+            recognizer.draw(0, 0);
             break;
-                     
-                    //Declare color
-                                       
-            /*
-            ofSetColor(130, 100, 70);
-            drawGameDisplay();
-            sub_font.drawString("Rock", 200, 100);
-            recognizer.draw();
-            if(gesture == ROCK) {
-                ofDrawBitmapString("rock", 120, 300);
-            }
-            if(gesture == PAPER) {
-                ofDrawBitmapString("paper", 120, 300);
-            }
-            if(gesture == SCISSORS) {
-                ofDrawBitmapString("scissors", 120, 300);
-            }
-             ofColor c;
-
-                                switch (cur_map.map[x][y])
-                                {
-                                case ' ':
-                                    c.r = 255;
-                                    c.g = 0;
-                                    c.b = 0;
-                                    break;
-                                case '#':
-                                    c.r = 0;
-                                    c.g = 255;
-                                    c.b = 0;
-                                    break;
-                                }
-
-                                ofSetColor(c);
-                                ofDrawRectangle((x * 11) + 11/2, (y * 11) + 11/2, 11, 11);
-             */
-                    
-                   
-            
-        }
-            
+  
         case(PAUSED):
             drawGamePaused();
-            title_font.drawString("Paused", 267, 450);
             break;
             
         case(FINISHED):
@@ -225,17 +123,25 @@ and eating itself) Update direction of snake and force a game update (see
 ofApp.h for why)
 */
 void Maze::keyPressed(int key) {
+    int upper_key = toupper(key);
     
-    if (key == OF_KEY_F12) {
+    if (upper_key == OF_KEY_F12) {
         ofToggleFullscreen();
         return;
     }
-    if(current_state_ != START && key == 'p')
+    if(current_state_ != START && upper_key == 'P')
     {
         current_state_ = PAUSED;
     }
     else if(key == ' ') {
         current_state_ = IN_PROGRESS;
+    }
+    else if(upper_key == 'F') {
+        ofToggleFullscreen();
+    }
+    else if(upper_key == 'M') {
+        if(virtual_cam.getMouseInputEnabled()) virtual_cam.disableMouseInput();
+        else virtual_cam.enableMouseInput();
     }
     else if(current_state_ == PAUSED) {
         current_state_ = IN_PROGRESS;
@@ -273,7 +179,7 @@ void Maze::keyPressed(int key) {
     }
     */
     if(current_state_ == IN_PROGRESS) {
-        
+        /*
     switch(key) {
             case 'a':
                 //move left
@@ -290,7 +196,7 @@ void Maze::keyPressed(int key) {
             case 'w':
                 //move up
                 if (cur_map.map[cur_map.posX][cur_map.posY-1] != '#') {
-                    cur_map.posY--;;
+                    cur_map.posY--;
                 }
                 break;
             case 's':
@@ -299,21 +205,13 @@ void Maze::keyPressed(int key) {
                     cur_map.posY++;
                 }
                 break;
-                
-            case 'M':
-            case 'm':
-                if(virtual_cam.getMouseInputEnabled()) virtual_cam.disableMouseInput();
-                else virtual_cam.enableMouseInput();
-                break;
-                
-            case 'F':
-            case 'f':
-                ofToggleFullscreen();
-                break;
         }
+         */
+        
+        processGesture();
+    
     }
-
-    }
+}
 
 
 void Maze::windowResized(int w, int h) {
@@ -361,8 +259,8 @@ void Maze::drawGameOver() {
 void Maze::drawGamePaused() {
     string pause_message = "P to Unpause!";
     ofSetColor(0, 0, 0);
-    ofDrawBitmapString(pause_message, ofGetWindowWidth() / 2,
-                       ofGetWindowHeight() / 2);
+    title_font.drawString("Paused", ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
+    
 }
 
 void Maze::mousePressed(int x, int y, int button){
@@ -370,10 +268,74 @@ void Maze::mousePressed(int x, int y, int button){
 }
 
 void Maze::processGesture() {
-    if(gesture == EAST) {
-      //  cout << "left" << endl;
+    if(gesture == SOUTH) {
+        //move down
+        if (cur_map.map[cur_map.posX][cur_map.posY+1] != '#') {
+            cur_map.posY++;
+            cout << "down" << endl;
+        }
     }
-    if(gesture == WEST) {
-      //  cout << "right" << endl;
+    else if(gesture == WEST) {
+        //move left
+        if (cur_map.map[cur_map.posX-1][cur_map.posY] != '#') {
+            cur_map.posX--;
+            cout << "left" << endl;
+
+        }
+    }
+    else if(gesture == EAST) {
+        //move right
+        if (cur_map.map[cur_map.posX+1][cur_map.posY] != '#') {
+            cur_map.posX++;
+            cout << "right" << endl;
+
+        }
+    }
+    else {
+               //move up
+        if (cur_map.map[cur_map.posX][cur_map.posY-1] != '#') {
+            cur_map.posY--;
+            cout << "up" << endl;
+           }
     }
 }
+
+void Maze::drawWalls() {
+    for(int y=0 ; y< HEIGHT ; y++){
+        for(int x=0 ; x< WIDTH ; x++){
+            
+            if (cur_map.map[x][y] != ' '){
+                if (cur_map.map[x][y] == 'E') {
+                    ofSetColor(153,255,153);
+                }
+                else {
+                    ofSetColor(63.0,63.0,63.0);
+                }
+                
+                ofPushMatrix();
+                ofTranslate(x*5-100,-y*5+50,0);
+                ofFill();
+                ofBox(5);
+                ofNoFill();
+                ofSetColor(0);
+                ofBox(5);
+                ofPopMatrix();
+            }
+            
+        }
+    }
+}
+
+void Maze::drawPlayer() {
+    ofPushMatrix();
+    ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
+    ofSetColor(255,255,255);
+    ofFill();
+    ofBox(4);
+    ofNoFill();
+    ofSetColor(0);
+    ofBox(4);
+    ofPopMatrix();
+}
+
+

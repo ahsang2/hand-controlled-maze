@@ -7,22 +7,17 @@
 
 #pragma once
 
+#include "player.h"
 
 namespace maze {
 
-class MazeMap{
-    private:
-      
-       
-    
-    public:
+struct MazeMap{
         
-        char map[41][21];
-        void generateGrid();
-        int posX;
-        int posY;
-        int exitPosX;
-        int exitPosY;
+    char map[41][21];
+    void generateGrid();
+    Player maze_runner;
+    int exitXCor;
+    int exitYCor;
         
 
     
