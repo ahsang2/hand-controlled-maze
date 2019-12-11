@@ -8,6 +8,8 @@
 #pragma once
 
 #include <stdio.h>
+#include "hand_recognizer.h"
+#include "maze_map.h"
 
 namespace maze {
 
@@ -17,12 +19,18 @@ class Player {
         int posY;
         int start_squareX;
         int start_squareY;
-    
-    public:
         void moveLeft();
         void moveRight();
         void moveDown();
         void moveUp();
+    
+    public:
+        void movePlayer(Gesture &gesture);
+        void setupPlayer();
+        int getX();
+        int getY();
+        int getStartX();
+        int getStartY();
     
 
 };

@@ -6,25 +6,25 @@ using namespace maze;
 
 
 const int HEIGHT = 21, WIDTH = 41;
+const int WINDOWx = 1024, WINDOWy = 768;
 
 // Setup method
 void Maze::setup() {
-    current_state_ = START;
+    recognizer.setup();
+    show_webcam = true;
     
+    cur_map.generateGrid();
+    cur_player = cur_map.maze_runner;
+    cur_player.setupPlayer();
+    
+    current_state = START;
+    slow_mode = false;
+    ofSetBackgroundColor(0x102178255);
+    ofSetWindowTitle("Maze by Hand");
     title_font.load("crushed.TTF", 50);
     sub_font.load("riffic.otf", 42);
     
-    recognizer.setup();
-    ofSetBackgroundColor(0x102178255);
-    ofSetWindowTitle("Maze by Hand");
-
-    srand(static_cast<unsigned>(time(0)));  // Seed random with current time
     virtual_cam.setDistance(150);
-    cur_map.generateGrid();
-    cur_map.posX = 7;
-    cur_map.posY = 19;
-    cur_map.exitXCor = 39;
-    cur_map.exitYCor = -19;
 }
 
 /*
@@ -44,29 +44,17 @@ void Maze::update() {
     recognizer.update();
     gesture = recognizer.getGesture();
     cout << gesture << endl;
-    /*
-    if (should_update_) {
-        if (current_state_ == IN_PROGRESS) {
-            ofVec2f snake_body_size = game_snake_.getBodySize();
-            ofVec2f head_pos = game_snake_.getHead()->position;
-            ofRectangle snake_rect(head_pos.x, head_pos.y, snake_body_size.x,
-                                   snake_body_size.y);
-
-            if (snake_rect.intersects(game_food_.getFoodRect())) {
-                game_snake_.eatFood(game_food_.getColor());
-                game_food_.rebase();
-            }
-            game_snake_.update();
-
-            if (game_snake_.isDead()) {
-                current_state_ = FINISHED;
-            }
-        }
-        
+    
+    if(current_state == IN_PROGRESS && should_update && !slow_mode)
+     {
         processGesture();
     }
-
-    should_update_ = true;*/
+    
+    if(cur_map.foundWinner()) {
+        current_state = FINISHED;
+    }
+    
+    should_update = true;
 }
 
 /*
@@ -76,7 +64,7 @@ Draws the current state of the game with the following logic
 3. Draw the current position of the food and of the snake
 */
 void Maze::draw() {
-    switch(current_state_) {
+    switch(current_state) {
         case(START):
             ofSetHexColor(0x636363);
             title_font.drawString("The Maze Game", 40, 100);
@@ -89,7 +77,6 @@ void Maze::draw() {
             drawWalls();
             drawPlayer();
             virtual_cam.end();
-            recognizer.draw(0, 0);
             break;
   
         case(PAUSED):
@@ -104,8 +91,9 @@ void Maze::draw() {
             break;
     }
     
-    //drawFood();
-    //drawSnake();
+    if(show_webcam && current_state == IN_PROGRESS) {
+        recognizer.draw(WINDOWx - 320, WINDOWy - 240);
+    }
 }
 
 /*
@@ -129,12 +117,12 @@ void Maze::keyPressed(int key) {
         ofToggleFullscreen();
         return;
     }
-    if(current_state_ != START && upper_key == 'P')
+    else if(current_state != START && upper_key == 'P')
     {
-        current_state_ = PAUSED;
+        current_state = PAUSED;
     }
     else if(key == ' ') {
-        current_state_ = IN_PROGRESS;
+        current_state = IN_PROGRESS;
     }
     else if(upper_key == 'F') {
         ofToggleFullscreen();
@@ -143,73 +131,21 @@ void Maze::keyPressed(int key) {
         if(virtual_cam.getMouseInputEnabled()) virtual_cam.disableMouseInput();
         else virtual_cam.enableMouseInput();
     }
-    else if(current_state_ == PAUSED) {
-        current_state_ = IN_PROGRESS;
+    else if(upper_key == 'W') {
+        show_webcam = !show_webcam;
     }
-    /*
-     if (current_state_ == IN_PROGRESS) {
-        SnakeDirection current_direction = game_snake_.getDirection();
-
-        // If current direction has changed to a valid new one, force an
-        // immediate update and skip the next frame update
-        if (upper_key == 'W' && current_direction != DOWN &&
-            current_direction != UP) {
-            game_snake_.setDirection(UP);
-            update();
-            should_update_ = false;
-        } else if (gesture == WEST && current_direction != RIGHT &&
-                   current_direction != LEFT) {
-            game_snake_.setDirection(LEFT);
-            update();
-            should_update_ = false;
-        } else if ((upper_key == 'S') && current_direction != UP &&
-                   current_direction != DOWN) {
-            game_snake_.setDirection(DOWN);
-            update();
-            should_update_ = false;
-        } else if (gesture == EAST && current_direction != LEFT &&
-                   current_direction != RIGHT) {
-            game_snake_.setDirection(RIGHT);
-            update();
-            should_update_ = false;
-        }
+    else if(upper_key == 'S') {
+        slow_mode = !slow_mode;
     }
-     else if (upper_key == 'R' && current_state_ == FINISHED) {
+    else if(upper_key == 'R') {
         reset();
     }
-    */
-    if(current_state_ == IN_PROGRESS) {
-        /*
-    switch(key) {
-            case 'a':
-                //move left
-                if (cur_map.map[cur_map.posX-1][cur_map.posY] != '#') {
-                    cur_map.posX--;
-                }
-                break;
-            case 'd':
-                //move right
-                if (cur_map.map[cur_map.posX+1][cur_map.posY] != '#') {
-                    cur_map.posX++;
-                }
-                break;
-            case 'w':
-                //move up
-                if (cur_map.map[cur_map.posX][cur_map.posY-1] != '#') {
-                    cur_map.posY--;
-                }
-                break;
-            case 's':
-                //move down
-                if (cur_map.map[cur_map.posX][cur_map.posY+1] != '#') {
-                    cur_map.posY++;
-                }
-                break;
-        }
-         */
-        
-        processGesture();
     
+    if(current_state == PAUSED) {
+        current_state = IN_PROGRESS;
+    }
+    else if(current_state == IN_PROGRESS && slow_mode) {
+        processGesture();
     }
 }
 
@@ -221,83 +157,29 @@ void Maze::windowResized(int w, int h) {
 
 //-------------------Helper methods---------------------
 void Maze::reset() {
-   // game_snake_ = Snake();
-  //  game_food_.rebase();
-    current_state_ = IN_PROGRESS;
-}
-
-void Maze::drawFood() {
-  //  ofSetColor(game_food_.getColor());
-   // ofDrawRectangle(game_food_.getFoodRect());
-}
-
-void Maze::drawSnake() {
-    /*
-    ofVec2f snake_body_size = game_snake_.getBodySize();
-    ofVec2f head_pos = game_snake_.getHead()->position;
-    ofSetColor(game_snake_.getHead()->color);
-    ofDrawRectangle(head_pos.x, head_pos.y, snake_body_size.x,
-                    snake_body_size.y);
-
-    for (SnakeBody* curr = game_snake_.getHead(); curr != NULL;
-         curr = curr->next) {
-        ofVec2f currPos = curr->position;
-        ofSetColor(curr->color);
-        ofDrawRectangle(currPos.x, currPos.y, snake_body_size.x,
-                        snake_body_size.y);
-    }*/
+    cur_map.resetMap();
+    current_state = IN_PROGRESS;
 }
 
 void Maze::drawGameOver() {
-   // string total_food = std::to_string(game_snake_.getFoodEaten());
-    string lose_message = "You Lost! Final Score: " ;
-    ofSetColor(0, 0, 0);
-    ofDrawBitmapString(lose_message, ofGetWindowWidth() / 2,
-                       ofGetWindowHeight() / 2);
+   ofSetColor(0, 0, 0);
+   title_font.drawString("Good Job", ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
 }
 
 void Maze::drawGamePaused() {
-    string pause_message = "P to Unpause!";
     ofSetColor(0, 0, 0);
     title_font.drawString("Paused", ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
-    
 }
 
 void Maze::mousePressed(int x, int y, int button){
     recognizer.mousePressed(x, y, button);
-}
+} 
 
 void Maze::processGesture() {
-    if(gesture == SOUTH) {
-        //move down
-        if (cur_map.map[cur_map.posX][cur_map.posY+1] != '#') {
-            cur_map.posY++;
-            cout << "down" << endl;
-        }
-    }
-    else if(gesture == WEST) {
-        //move left
-        if (cur_map.map[cur_map.posX-1][cur_map.posY] != '#') {
-            cur_map.posX--;
-            cout << "left" << endl;
-
-        }
-    }
-    else if(gesture == EAST) {
-        //move right
-        if (cur_map.map[cur_map.posX+1][cur_map.posY] != '#') {
-            cur_map.posX++;
-            cout << "right" << endl;
-
-        }
-    }
-    else {
-               //move up
-        if (cur_map.map[cur_map.posX][cur_map.posY-1] != '#') {
-            cur_map.posY--;
-            cout << "up" << endl;
-           }
-    }
+    cur_player.movePlayer(gesture);
+    
+    
+    should_update = false;
 }
 
 void Maze::drawWalls() {
@@ -328,7 +210,7 @@ void Maze::drawWalls() {
 
 void Maze::drawPlayer() {
     ofPushMatrix();
-    ofTranslate(cur_map.posX*5-100,-cur_map.posY*5+50,1);
+    ofTranslate(cur_player.getX()*5-100,-cur_player.getY()*5+50,1);
     ofSetColor(255,255,255);
     ofFill();
     ofBox(4);

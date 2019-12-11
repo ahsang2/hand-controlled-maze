@@ -15,7 +15,6 @@ void HandRecognizer::setup() {
     
     webcam.initGrabber(w, h);
     
-    //reserve memory for cv images
     rgb.allocate(w, h);
     hsb.allocate(w, h);
     hue.allocate(w, h);
@@ -63,7 +62,7 @@ void HandRecognizer::draw(int x, int y){
     //draw all cv images
     rgb.draw(x,y);
 
-    contours.draw(0,0);
+    contours.draw(x,y);
 }
 
 void HandRecognizer::mousePressed(int x, int y, int button) {
@@ -82,10 +81,7 @@ Gesture HandRecognizer::getGesture(){
         int y = 0;
         int height = 0;
         
-      /*  if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x + 20 && contours.blobs[i].centroid.y < -contours.blobs[i].centroid.x + h + 20){
-            return Gesture::PAPER;
-        }*/
-        //else
+     
         if (contours.blobs[i].centroid.y > contours.blobs[i].centroid.x && contours.blobs[i].centroid.y < h - contours.blobs[i].centroid.x){
             return Gesture::WEST;
         }
@@ -100,3 +96,4 @@ Gesture HandRecognizer::getGesture(){
         }
     }
 }
+

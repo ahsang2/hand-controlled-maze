@@ -10,16 +10,17 @@
 #include "player.h"
 
 namespace maze {
+    static const int HEIGHT = 21;
+    static const int WIDTH = 41;
 
 struct MazeMap{
         
-    char map[41][21];
+    char map[WIDTH][HEIGHT];
     void generateGrid();
     Player maze_runner;
     int exitXCor;
     int exitYCor;
-        
-
-    
+    void resetMap();
+    bool foundWinner();
 };
 }

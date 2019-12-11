@@ -11,7 +11,7 @@
 #include "ofxOpenCv.h"
 
 
-enum Gesture { WEST, EAST, NORTH, SOUTH};
+enum Gesture { WEST, EAST, NORTH, SOUTH, NOWHERE};
 
 // https://sites.google.com/site/ofauckland/examples/10-testing
 class HandRecognizer{

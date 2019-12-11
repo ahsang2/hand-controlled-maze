@@ -13,14 +13,12 @@ namespace maze {
 // Enum to represent the current state of the game
 enum GameState {START = 0, IN_PROGRESS, PAUSED, FINISHED };
 
-
 class Maze : public ofBaseApp {
 private:
-    GameState current_state_;  // The current state of the game, used to determine
+    GameState current_state;  // The current state of the game, used to determine
                         // possible actions
-    
 
-    bool should_update_ = true;  // A flag boolean used in the update() function. Due to the frame
+    bool should_update = true;  // A flag boolean used in the update() function. Due to the frame
                // dependent animation we've written, and the relatively low
                // framerate, a bug exists where users can prefire direction
                // changes faster than a frame update. Our solution is to force a
@@ -28,9 +26,9 @@ private:
                // next frame to prevent the snake from skipping across the
                // screen.
 
+    bool show_webcam;
+    bool slow_mode;
     // Private helper methods to render various aspects of the game on screen.
-    void drawFood();
-    void drawSnake();
     void drawGameOver();
     void drawGamePaused();
     void processGesture();
@@ -46,6 +44,8 @@ private:
     Gesture gesture;
     ofEasyCam virtual_cam;
     MazeMap cur_map;
+    Player cur_player;
+
 
 public:
     // Function used for one time setup
