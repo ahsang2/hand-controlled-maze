@@ -6,8 +6,8 @@
 //
 
 #pragma once
-
-#include "player.h"
+#include <iostream>
+#include <tuple>
 
 namespace maze {
     static const int HEIGHT = 21;
@@ -17,10 +17,11 @@ struct MazeMap{
         
     char map[WIDTH][HEIGHT];
     void generateGrid();
-    Player maze_runner;
+    std::tuple<int,int> getInitPosition();
+    std::tuple<int,int> getEndPosition();
     int exitXCor;
     int exitYCor;
-    void resetMap();
-    bool foundWinner();
+    int playerXCor;
+    int playerYCor;
 };
 }

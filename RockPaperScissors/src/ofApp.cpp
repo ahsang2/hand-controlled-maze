@@ -6,7 +6,6 @@ using namespace maze;
 
 
 const int HEIGHT = 21, WIDTH = 41;
-const int WINDOWx = 1024, WINDOWy = 768;
 
 // Setup method
 void Maze::setup() {
@@ -14,8 +13,7 @@ void Maze::setup() {
     show_webcam = true;
     
     cur_map.generateGrid();
-    cur_player = cur_map.maze_runner;
-    cur_player.setupPlayer();
+    maze_runner.setupPlayer(cur_map);
     
     current_state = START;
     slow_mode = false;
@@ -23,6 +21,7 @@ void Maze::setup() {
     ofSetWindowTitle("Maze by Hand");
     title_font.load("crushed.TTF", 50);
     sub_font.load("riffic.otf", 42);
+    small_font.load("crushed.TTF", 23);
     
     virtual_cam.setDistance(150);
 }
@@ -50,7 +49,7 @@ void Maze::update() {
         processGesture();
     }
     
-    if(cur_map.foundWinner()) {
+    if(maze_runner.foundWinner(cur_map)) {
         current_state = FINISHED;
     }
     
@@ -72,7 +71,7 @@ void Maze::draw() {
             return;
             
         case(IN_PROGRESS):
-            ofSetBackgroundColor(200,200,200);
+            //ofSetBackgroundColor(200,200,200);
             virtual_cam.begin();
             drawWalls();
             drawPlayer();
@@ -92,7 +91,11 @@ void Maze::draw() {
     }
     
     if(show_webcam && current_state == IN_PROGRESS) {
-        recognizer.draw(WINDOWx - 320, WINDOWy - 240);
+        recognizer.draw(ofGetWindowWidth() - 260, ofGetWindowHeight() - 180);
+    }
+    
+    if(slow_mode && current_state == IN_PROGRESS) {
+        showDirection();
     }
 }
 
@@ -120,9 +123,15 @@ void Maze::keyPressed(int key) {
     else if(current_state != START && upper_key == 'P')
     {
         current_state = PAUSED;
+        return;
     }
     else if(key == ' ') {
-        current_state = IN_PROGRESS;
+        if(current_state != IN_PROGRESS) {
+            current_state = IN_PROGRESS;
+        }
+        else if(slow_mode) {
+            processGesture();
+        }
     }
     else if(upper_key == 'F') {
         ofToggleFullscreen();
@@ -144,9 +153,6 @@ void Maze::keyPressed(int key) {
     if(current_state == PAUSED) {
         current_state = IN_PROGRESS;
     }
-    else if(current_state == IN_PROGRESS && slow_mode) {
-        processGesture();
-    }
 }
 
 
@@ -157,18 +163,31 @@ void Maze::windowResized(int w, int h) {
 
 //-------------------Helper methods---------------------
 void Maze::reset() {
-    cur_map.resetMap();
+    maze_runner.setupPlayer(cur_map);
     current_state = IN_PROGRESS;
 }
 
 void Maze::drawGameOver() {
    ofSetColor(0, 0, 0);
-   title_font.drawString("Good Job", ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
+   title_font.drawString("Good Job", ofGetWindowWidth() / 4, ofGetWindowHeight() / 2);
 }
 
 void Maze::drawGamePaused() {
     ofSetColor(0, 0, 0);
-    title_font.drawString("Paused", ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
+    title_font.drawString("Game Paused", ofGetWindowWidth() / 7, ofGetWindowHeight() - 100);
+    drawInstructions();
+}
+
+void Maze::drawInstructions() {
+    string str = "How to play: \n Space - Play \n P - Pause \n F - fullscreen \n W - webcam \n R - Reset \n S - slow mode";
+    small_font.drawString(str, ofGetWindowWidth() / 3, ofGetWindowHeight() / 14);
+}
+
+void Maze::showDirection() {
+    ofSetColor(0,0,0);
+    ofDrawBitmapString("Slow mode on | Current Direction: ", 100, 100);
+    small_font.drawString("direction", 400, 100);
+    small_font.drawString("Press space to move", 50, ofGetWindowHeight() - 100);
 }
 
 void Maze::mousePressed(int x, int y, int button){
@@ -176,8 +195,7 @@ void Maze::mousePressed(int x, int y, int button){
 } 
 
 void Maze::processGesture() {
-    cur_player.movePlayer(gesture);
-    
+    maze_runner.movePlayer(gesture, cur_map);
     
     should_update = false;
 }
@@ -210,7 +228,7 @@ void Maze::drawWalls() {
 
 void Maze::drawPlayer() {
     ofPushMatrix();
-    ofTranslate(cur_player.getX()*5-100,-cur_player.getY()*5+50,1);
+    ofTranslate(maze_runner.getX()*5-100,-maze_runner.getY()*5+50,1);
     ofSetColor(255,255,255);
     ofFill();
     ofBox(4);

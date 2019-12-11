@@ -9,69 +9,58 @@
 
 using namespace maze;
 
-void Player::setupPlayer() {
-    this->start_squareX = 7;
-    this->start_squareY = 19;
-    this->posX = 7;
-    this->posY = 19;
+void Player::setupPlayer(MazeMap &cur_map) {
+    this->start_squareX = get<0>(cur_map.getInitPosition());
+    this->start_squareY = get<1>(cur_map.getInitPosition());
+    this->xCor = get<0>(cur_map.getInitPosition());
+    this->yCor = get<1>(cur_map.getInitPosition());
 }
 
 void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
     if(gesture == SOUTH) {
         //move down
-        if (cur_map.map[cur_player.getX()][cur_player.getY()+1] != '#') {
-            this->moveUp();
+        if (cur_map.map[xCor][yCor+1] != '#') {
+            yCor++;
             cout << "up" << endl;
         }
     }
     else if(gesture == WEST) {
         //move left
-        if (cur_map.map[cur_player.getX()-1][cur_player.getY()] != '#') {
-            cur_player.moveLeft();
+        if (cur_map.map[xCor-1][yCor] != '#') {
+            xCor--;;
             cout << "left" << endl;
 
         }
     }
     else if(gesture == EAST) {
         //move right
-        if (cur_map.map[cur_player.getX()+1][cur_player.getY()] != '#') {
-            cur_player.moveRight();
+        if (cur_map.map[xCor+1][yCor] != '#') {
+            xCor++;
             cout << "right" << endl;
 
         }
     }
     else if(gesture == NORTH){
                //move up
-        if (cur_map.map[cur_player.getX()][cur_player.getY()-1] != '#') {
-            cur_player.moveDown();
+        if (cur_map.map[xCor][yCor-1] != '#') {
+            yCor--;
             cout << "down" << endl;
            }
     }
     
     gesture = NOWHERE;
 }
-void Player::moveLeft() {
-    posX--;
-}
 
-void Player::moveRight() {
-    posX++;
-}
-
-void Player::moveDown() {
-    posY--;
-}
-
-void Player::moveUp() {
-    posY++;
+bool Player::foundWinner(MazeMap &cur_map) {
+    return xCor == get<0>(cur_map.getEndPosition()) && yCor == get<1>(cur_map.getEndPosition());
 }
 
 int Player::getX() {
-    return posX;
+    return xCor;
 }
 
 int Player::getY() {
-    return posY;
+    return yCor;
 }
 
 int Player::getStartX() {

@@ -6,6 +6,7 @@
 //
 
 #include "maze_map.h"
+
 // current maze from https://www.youtube.com/watch?v=9Ozu-B2HLY4, also used the same of display
 
 using namespace maze;
@@ -43,14 +44,15 @@ void MazeMap::generateGrid() {
         }
     }
     
+   
     exitXCor = 39;
     exitYCor = -19;
 }
 
-void MazeMap::resetMap() {
-    maze_runner.setupPlayer();
+std::tuple<int,int> MazeMap::getInitPosition() {
+    return {7,19};
 }
 
-bool MazeMap::foundWinner() {
-    return maze_runner.getX() == exitXCor && maze_runner.getY() == exitYCor;
+std::tuple<int,int> MazeMap::getEndPosition() {
+    return {39,-19};
 }

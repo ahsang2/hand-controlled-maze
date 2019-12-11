@@ -61,7 +61,10 @@ I may try to revisit this in the future: here's what I tried: The following link
 - [X] implementing hand gestures to control --> added fast and slow mode
 
 **December 10**
-- [ ] cleaning up code (maze methods and fast and slow mode), magic numbers
+- [X] cleaning up code (maze methods and fast and slow mode), magic numbers
+- [X] implementing maze generator
 - [ ] adding testing
-- [ ] implementing maze generator
-- [ ] wrote readme
+
+**December 11**
+- [ ] adding final features
+- [ ] adding testing

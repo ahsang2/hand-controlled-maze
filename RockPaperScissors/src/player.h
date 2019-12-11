@@ -15,18 +15,15 @@ namespace maze {
 
 class Player {
     private:
-        int posX;
-        int posY;
+        int xCor;
+        int yCor;
         int start_squareX;
         int start_squareY;
-        void moveLeft();
-        void moveRight();
-        void moveDown();
-        void moveUp();
     
     public:
-        void movePlayer(Gesture &gesture);
-        void setupPlayer();
+        void movePlayer(Gesture &gesture, MazeMap &cur_map);
+        void setupPlayer(MazeMap &cur_map);
+        bool foundWinner(MazeMap &cur_map);
         int getX();
         int getY();
         int getStartX();

@@ -5,6 +5,7 @@
 
 #include "ofMain.h"
 #include "maze_map.h"
+#include "player.h"
 #include "hand_recognizer.h"
 
 
@@ -31,21 +32,23 @@ private:
     // Private helper methods to render various aspects of the game on screen.
     void drawGameOver();
     void drawGamePaused();
+    void drawInstructions();
     void processGesture();
     void drawWalls();
     void drawPlayer();
+    void showDirection();
 
     // Resets the game objects to their original state.
     void reset();
     
     ofTrueTypeFont title_font;
     ofTrueTypeFont sub_font;
+    ofTrueTypeFont small_font;
     HandRecognizer recognizer;
     Gesture gesture;
     ofEasyCam virtual_cam;
     MazeMap cur_map;
-    Player cur_player;
-
+    Player maze_runner;
 
 public:
     // Function used for one time setup

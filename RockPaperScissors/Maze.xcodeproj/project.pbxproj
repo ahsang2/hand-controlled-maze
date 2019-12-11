@@ -27,7 +27,6 @@
 		7C7CB13CCEEA70E62A8FE4C8 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7B66F613D3F75BAB1111B97 /* ofxPanel.cpp */; };
 		A8AF5026B993C25974C7779A /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCB57444D8E1486F95A72 /* ofxCvFloatImage.cpp */; };
 		ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31757DEC3A684332F556844D /* Utilities.cpp */; };
-		AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5035F23987B650081FBA3 /* classifying-test.cpp */; };
 		AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */; };
 		AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* ofApp.cpp */; };
 		AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037F239EAAD00081FBA3 /* maze_map.cpp */; };
@@ -366,7 +365,6 @@
 		9D2A75166A336DCA5772AC13 /* gmetaarg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gmetaarg.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gmetaarg.hpp; sourceTree = SOURCE_ROOT; };
 		9DD02B82637A59CDC1E0AB54 /* ofxInputField.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxInputField.cpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxGui/src/ofxInputField.cpp; sourceTree = SOURCE_ROOT; };
 		9DD2E535277A0950D958E096 /* ml.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ml.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/ml.hpp; sourceTree = SOURCE_ROOT; };
-		9DD81D2D07BF346E3C79C58A /* catch.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = catch.hpp; path = test/catch.hpp; sourceTree = SOURCE_ROOT; };
 		9E490CD819006CE0D9C2774F /* garg.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = garg.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/garg.hpp; sourceTree = SOURCE_ROOT; };
 		9F52940B4AC3495E2C42A23A /* calib3d.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = calib3d.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/calib3d/calib3d.hpp; sourceTree = SOURCE_ROOT; };
 		9FC11CC920031F9B2E2000B3 /* configuration.private.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = configuration.private.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/utils/configuration.private.hpp; sourceTree = SOURCE_ROOT; };
@@ -405,7 +403,6 @@
 		ADE96EF495A54DCF6F9E353D /* type_traits_detail.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = type_traits_detail.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/detail/type_traits_detail.hpp; sourceTree = SOURCE_ROOT; };
 		AF76022A2A6D2644F13979CF /* photo.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = photo.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo.hpp; sourceTree = SOURCE_ROOT; };
 		AF9064626ECB30E8FCB7CE59 /* all_layers.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = all_layers.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/dnn/all_layers.hpp; sourceTree = SOURCE_ROOT; };
-		AFD5035F23987B650081FBA3 /* classifying-test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "classifying-test.cpp"; sourceTree = "<group>"; };
 		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
 		AFD503652398C61A0081FBA3 /* hand_recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hand_recognizer.h; sourceTree = "<group>"; };
 		AFD50372239AF67E0081FBA3 /* ofApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
@@ -704,7 +701,7 @@
 		E42963722163EDD300A6A9E2 /* ofSoundBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofSoundBuffer.cpp; path = ../../../Downloads/of_v20191120_osx_release/libs/openFrameworks/sound/ofSoundBuffer.cpp; sourceTree = SOURCE_ROOT; };
 		E42963732163EDD300A6A9E2 /* ofSoundBaseTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofSoundBaseTypes.h; path = ../../../Downloads/of_v20191120_osx_release/libs/openFrameworks/sound/ofSoundBaseTypes.h; sourceTree = SOURCE_ROOT; };
 		E457618B71079A8B918CCD53 /* sse_utils.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = sse_utils.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/sse_utils.hpp; sourceTree = SOURCE_ROOT; };
-		E4B69B5B0A3A1756003C02F2 /* RockPaperScissorsDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissorsDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* MazeDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazeDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
@@ -1743,8 +1740,6 @@
 		AFD5035E23987B2B0081FBA3 /* test */ = {
 			isa = PBXGroup;
 			children = (
-				9DD81D2D07BF346E3C79C58A /* catch.hpp */,
-				AFD5035F23987B650081FBA3 /* classifying-test.cpp */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -2166,7 +2161,7 @@
 				E42962AA2163EDD300A6A9E2 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				6948EE371B920CB800B5AC1A /* local_addons */,
-				E4B69B5B0A3A1756003C02F2 /* RockPaperScissorsDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* MazeDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2317,9 +2312,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* RockPaperScissors */ = {
+		E4B69B5A0A3A1756003C02F2 /* Maze */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "RockPaperScissors" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "Maze" */;
 			buildPhases = (
 				E42962A92163ECCD00A6A9E2 /* ShellScript */,
 				E4B69B580A3A1756003C02F2 /* Sources */,
@@ -2332,9 +2327,9 @@
 			);
 			dependencies = (
 			);
-			name = RockPaperScissors;
+			name = Maze;
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* RockPaperScissorsDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* MazeDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2345,7 +2340,7 @@
 			attributes = {
 				LastUpgradeCheck = 1120;
 			};
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "RockPaperScissors" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Maze" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2360,7 +2355,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* RockPaperScissors */,
+				E4B69B5A0A3A1756003C02F2 /* Maze */,
 			);
 		};
 /* End PBXProject section */
@@ -2413,7 +2408,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				AFD5036023987B650081FBA3 /* classifying-test.cpp in Sources */,
 				39076069EAD9BF69E3E057F7 /* ofxCvColorImage.cpp in Sources */,
 				46860AB9B848878E6D8772CB /* ofxCvContourFinder.cpp in Sources */,
 				A8AF5026B993C25974C7779A /* ofxCvFloatImage.cpp in Sources */,
@@ -3202,7 +3196,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "RockPaperScissors" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Maze" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
@@ -3212,7 +3206,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "RockPaperScissors" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "Maze" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,
