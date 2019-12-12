@@ -23,7 +23,7 @@ void HandRecognizer::setup() {
     filtered.allocate(w, h);
 }
 
-void HandRecognizer::update(){
+void HandRecognizer::update() {
     
     webcam.update();
     
@@ -46,7 +46,7 @@ void HandRecognizer::update(){
         hsb.convertToGrayscalePlanarImages(hue, sat, bri);
         
         //filter image based on the hue value were looking for
-        for (int i=0; i<w*h; i++) {
+        for (int i = 0; i < w*h; i++) {
             filtered.getPixels()[i] = ofInRange(hue.getPixels()[i],findHue-6,findHue+6) ? 255 : 0;
         }
         filtered.flagImageChanged();
@@ -56,7 +56,7 @@ void HandRecognizer::update(){
     }
 }
 
-void HandRecognizer::draw(int x, int y){
+void HandRecognizer::draw(int x, int y) {
     ofSetColor(255,255,255);
     
     //draw all cv images
@@ -75,8 +75,8 @@ void HandRecognizer::mousePressed(int x, int y, int button) {
     findHue = hue.getPixels()[my*w+mx];
 }
 
-Gesture HandRecognizer::getGesture(){
-    for (int i=0; i<contours.nBlobs; i++) {
+Gesture HandRecognizer::getGesture() {
+    for (int i = 0; i < contours.nBlobs; i++) {
         int x = 0;
         int y = 0;
         int height = 0;
@@ -96,4 +96,24 @@ Gesture HandRecognizer::getGesture(){
         }
     }
 }
+
+string HandRecognizer::getDirectionName() {
+    Gesture gesture = getGesture();
+    
+    if(gesture == Gesture::WEST) {
+        return "Left";
+    }
+    if(gesture == Gesture::EAST) {
+        return "Right";
+    }
+    if(gesture == Gesture::NORTH) {
+        return "Up";
+    }
+    if(gesture == Gesture::SOUTH) {
+        return "Down";
+    }
+    
+    return "Loading..";
+}
+    
 

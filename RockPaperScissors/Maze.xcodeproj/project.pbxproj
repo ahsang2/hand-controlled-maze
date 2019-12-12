@@ -31,6 +31,7 @@
 		AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* ofApp.cpp */; };
 		AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037F239EAAD00081FBA3 /* maze_map.cpp */; };
 		AFD50384239ED9820081FBA3 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50382239ED9820081FBA3 /* player.cpp */; };
+		AFD5038A23A1BE290081FBA3 /* gameplay_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5038923A1BE290081FBA3 /* gameplay_test.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
 		C39646E0F9D918C78F6F6CC5 /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF32BC9D5AB151D6847AF887 /* Kalman.cpp */; };
 		CA6F10C443FC7BFD48E18404 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A3AC8664A392F2E43F7702 /* Distance.cpp */; };
@@ -410,6 +411,7 @@
 		AFD50380239EAAD00081FBA3 /* maze_map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = maze_map.h; sourceTree = "<group>"; };
 		AFD50382239ED9820081FBA3 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		AFD50383239ED9820081FBA3 /* player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		AFD5038923A1BE290081FBA3 /* gameplay_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameplay_test.cpp; sourceTree = "<group>"; };
 		AFFFFA032BDD17F1CD8AA33D /* gkernel.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gkernel.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/gapi/gkernel.hpp; sourceTree = SOURCE_ROOT; };
 		B00201F9954A95FB1BC14076 /* warp_reduce.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = warp_reduce.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv4/opencv2/core/cuda/warp_reduce.hpp; sourceTree = SOURCE_ROOT; };
 		B057F64253FCB0E5C547BF53 /* common.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.hpp; path = ../../../Downloads/of_v20191120_osx_release/addons/ofxOpenCv/libs/opencv/include/opencv2/core/cuda/common.hpp; sourceTree = SOURCE_ROOT; };
@@ -1740,6 +1742,7 @@
 		AFD5035E23987B2B0081FBA3 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				AFD5038923A1BE290081FBA3 /* gameplay_test.cpp */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -2431,6 +2434,7 @@
 				ABCA3CB6CF5A8AB29080AF38 /* Utilities.cpp in Sources */,
 				3BB8D8177714121604BBA506 /* Wrappers.cpp in Sources */,
 				5E83418F9D512096E664CE63 /* ofxBaseGui.cpp in Sources */,
+				AFD5038A23A1BE290081FBA3 /* gameplay_test.cpp in Sources */,
 				AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */,
 				18CA0E954AFCB52C3E404087 /* ofxButton.cpp in Sources */,
 				6E9E2F0114D150B6DD9ABF09 /* ofxColorPicker.cpp in Sources */,

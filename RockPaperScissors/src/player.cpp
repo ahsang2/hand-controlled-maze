@@ -19,36 +19,69 @@ void Player::setupPlayer(MazeMap &cur_map) {
 void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
     if(gesture == SOUTH) {
         //move down
-        if (cur_map.map[xCor][yCor+1] != '#') {
+        if (cur_map.map[xCor][yCor+1] != 'W') {
             yCor++;
-            cout << "up" << endl;
+        //    cout << "down" << endl;
         }
     }
     else if(gesture == WEST) {
         //move left
-        if (cur_map.map[xCor-1][yCor] != '#') {
+        if (cur_map.map[xCor-1][yCor] != 'W') {
             xCor--;;
-            cout << "left" << endl;
+        //    cout << "left" << endl;
 
         }
     }
     else if(gesture == EAST) {
         //move right
-        if (cur_map.map[xCor+1][yCor] != '#') {
+        if (cur_map.map[xCor+1][yCor] != 'W') {
             xCor++;
-            cout << "right" << endl;
+         //   cout << "right" << endl;
 
         }
     }
     else if(gesture == NORTH){
                //move up
-        if (cur_map.map[xCor][yCor-1] != '#') {
+        if (cur_map.map[xCor][yCor-1] != 'W') {
             yCor--;
-            cout << "down" << endl;
+           // cout << "up" << endl;
            }
     }
     
     gesture = NOWHERE;
+}
+
+void Player::movePlayer(int key, MazeMap &cur_map) {
+    if(key == OF_KEY_DOWN) {
+        //move down
+        if (cur_map.map[xCor][yCor+1] != 'W') {
+            yCor++;
+            //cout << "down" << endl;
+        }
+    }
+    else if(key == OF_KEY_LEFT) {
+        //move left
+        if (cur_map.map[xCor-1][yCor] != 'W') {
+            xCor--;;
+            //cout << "left" << endl;
+
+        }
+    }
+    else if(key == OF_KEY_RIGHT) {
+        //move right
+        if (cur_map.map[xCor+1][yCor] != 'W') {
+            xCor++;
+           // cout << "right" << endl;
+
+        }
+    }
+    else if(key == OF_KEY_UP){
+               //move up
+        if (cur_map.map[xCor][yCor-1] != 'W') {
+            yCor--;
+            //cout << "up" << endl;
+           }
+    }
 }
 
 bool Player::foundWinner(MazeMap &cur_map) {

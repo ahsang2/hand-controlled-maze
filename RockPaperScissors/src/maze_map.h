@@ -14,7 +14,8 @@ namespace maze {
     static const int WIDTH = 41;
 
 struct MazeMap{
-        
+    
+    MazeMap();
     char map[WIDTH][HEIGHT];
     void generateGrid();
     std::tuple<int,int> getInitPosition();

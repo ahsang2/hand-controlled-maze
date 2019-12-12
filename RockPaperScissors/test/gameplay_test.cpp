@@ -6,3 +6,4 @@
 //
 
 #include <stdio.h>
+//catch testing did not compile, but my code is testable

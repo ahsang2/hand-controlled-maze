@@ -16,6 +16,7 @@ void Maze::setup() {
     maze_runner.setupPlayer(cur_map);
     
     current_state = START;
+    gesture = NOWHERE;
     slow_mode = false;
     ofSetBackgroundColor(0x102178255);
     ofSetWindowTitle("Maze by Hand");
@@ -42,9 +43,8 @@ of the game
 void Maze::update() {
     recognizer.update();
     gesture = recognizer.getGesture();
-    cout << gesture << endl;
     
-    if(current_state == IN_PROGRESS && should_update && !slow_mode)
+    if(current_state == IN_PROGRESS && should_update && !slow_mode && !key_mode)
      {
         processGesture();
     }
@@ -54,6 +54,9 @@ void Maze::update() {
     }
     
     should_update = true;
+    
+    cout << maze_runner.getX() << endl;
+    cout << maze_runner.getY() << endl;
 }
 
 /*
@@ -92,6 +95,11 @@ void Maze::draw() {
     
     if(show_webcam && current_state == IN_PROGRESS) {
         recognizer.draw(ofGetWindowWidth() - 260, ofGetWindowHeight() - 180);
+    }
+    
+    if(key_mode && current_state == IN_PROGRESS) {
+        ofDrawBitmapString("Key mode on | Use Arrow Keys ", 100, 100);
+        slow_mode = false;
     }
     
     if(slow_mode && current_state == IN_PROGRESS) {
@@ -144,21 +152,29 @@ void Maze::keyPressed(int key) {
         show_webcam = !show_webcam;
     }
     else if(upper_key == 'S') {
+        key_mode = false;
         slow_mode = !slow_mode;
     }
     else if(upper_key == 'R') {
         reset();
     }
+    else if(upper_key == 'K') {
+        slow_mode = false;
+        key_mode = !key_mode;
+    }
     
     if(current_state == PAUSED) {
         current_state = IN_PROGRESS;
+    }
+    
+    if(key_mode) {
+        useArrowKeys(upper_key);
     }
 }
 
 
 void Maze::windowResized(int w, int h) {
-    //game_food_.resize(w, h);
-    //game_snake_.resize(w, h);
+    
 }
 
 //-------------------Helper methods---------------------
@@ -169,7 +185,7 @@ void Maze::reset() {
 
 void Maze::drawGameOver() {
    ofSetColor(0, 0, 0);
-   title_font.drawString("Good Job", ofGetWindowWidth() / 4, ofGetWindowHeight() / 2);
+   title_font.drawString("You Escaped", ofGetWindowWidth() / 8, ofGetWindowHeight() / 2);
 }
 
 void Maze::drawGamePaused() {
@@ -179,14 +195,15 @@ void Maze::drawGamePaused() {
 }
 
 void Maze::drawInstructions() {
-    string str = "How to play: \n Space - Play \n P - Pause \n F - fullscreen \n W - webcam \n R - Reset \n S - slow mode";
+    string str = "How to play: \n Space - Play \n P - Pause \n F - fullscreen \n W - webcam \n R - Reset \n S - slow mode \n K - key mode";
     small_font.drawString(str, ofGetWindowWidth() / 3, ofGetWindowHeight() / 14);
 }
 
 void Maze::showDirection() {
     ofSetColor(0,0,0);
     ofDrawBitmapString("Slow mode on | Current Direction: ", 100, 100);
-    small_font.drawString("direction", 400, 100);
+    string dir = recognizer.getDirectionName();
+    small_font.drawString(dir, 400, 100);
     small_font.drawString("Press space to move", 50, ofGetWindowHeight() - 100);
 }
 
@@ -200,18 +217,17 @@ void Maze::processGesture() {
     should_update = false;
 }
 
+void Maze::useArrowKeys(int key) {
+    maze_runner.movePlayer(key, cur_map);
+}
+
 void Maze::drawWalls() {
     for(int y=0 ; y< HEIGHT ; y++){
         for(int x=0 ; x< WIDTH ; x++){
             
-            if (cur_map.map[x][y] != ' '){
-                if (cur_map.map[x][y] == 'E') {
-                    ofSetColor(153,255,153);
-                }
-                else {
-                    ofSetColor(63.0,63.0,63.0);
-                }
+            if (cur_map.map[x][y] == 'W'){
                 
+                ofSetColor(63.0,63.0,63.0);
                 ofPushMatrix();
                 ofTranslate(x*5-100,-y*5+50,0);
                 ofFill();

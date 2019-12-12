@@ -29,6 +29,7 @@ private:
 
     bool show_webcam;
     bool slow_mode;
+    bool key_mode;
     // Private helper methods to render various aspects of the game on screen.
     void drawGameOver();
     void drawGamePaused();
@@ -37,6 +38,7 @@ private:
     void drawWalls();
     void drawPlayer();
     void showDirection();
+    void useArrowKeys(int key);
 
     // Resets the game objects to their original state.
     void reset();

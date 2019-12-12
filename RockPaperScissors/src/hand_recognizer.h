@@ -29,4 +29,5 @@ class HandRecognizer{
         void draw(int x, int y);
         void mousePressed(int x, int y, int button);
         Gesture getGesture();
+        string getDirectionName();
 };
