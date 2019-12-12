@@ -5,11 +5,14 @@
 
 <h2>How to setup for the game</h2>
 
-**Dependencies + External Libraries** 
+**Dependencies + External Libraries**  
+
 OpenCV: used to capture and recognize hand movements 
+
 OpenFrameWorks: used to update and graw GUI window for the game
 
 **Compiling code**
+
 As long as you add openframeworks OfxGUi and OfxOpenCv add ons, and the OpenCV library, you should have no problems. This game was built and ran using XCode on MacOS but the process should be similiar on other operating systems.
 
 ### Game
