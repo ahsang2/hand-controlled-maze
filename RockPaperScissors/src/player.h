@@ -21,7 +21,7 @@ class Player {
         int start_squareY;
     
     public:
-        void movePlayer(Gesture &gesture, MazeMap &cur_map);
+        void movePlayer(Direction &direction, MazeMap &cur_map);
         void movePlayer(int key, MazeMap &cur_map);
         void setupPlayer(MazeMap &cur_map);
         bool foundWinner(MazeMap &cur_map);

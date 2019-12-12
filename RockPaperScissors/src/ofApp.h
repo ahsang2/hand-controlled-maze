@@ -34,7 +34,7 @@ private:
     void drawGameOver();
     void drawGamePaused();
     void drawInstructions();
-    void processGesture();
+    void processDirection();
     void drawWalls();
     void drawPlayer();
     void showDirection();
@@ -47,7 +47,7 @@ private:
     ofTrueTypeFont sub_font;
     ofTrueTypeFont small_font;
     HandRecognizer recognizer;
-    Gesture gesture;
+    Direction direction;
     ofEasyCam virtual_cam;
     MazeMap cur_map;
     Player maze_runner;

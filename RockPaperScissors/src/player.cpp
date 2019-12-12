@@ -16,15 +16,15 @@ void Player::setupPlayer(MazeMap &cur_map) {
     this->yCor = get<1>(cur_map.getInitPosition());
 }
 
-void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
-    if(gesture == SOUTH) {
+void Player::movePlayer(Direction &direction, MazeMap &cur_map) {
+    if(direction == SOUTH) {
         //move down
         if (cur_map.map[xCor][yCor+1] != 'W') {
             yCor++;
         //    cout << "down" << endl;
         }
     }
-    else if(gesture == WEST) {
+    else if(direction == WEST) {
         //move left
         if (cur_map.map[xCor-1][yCor] != 'W') {
             xCor--;;
@@ -32,7 +32,7 @@ void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
 
         }
     }
-    else if(gesture == EAST) {
+    else if(direction == EAST) {
         //move right
         if (cur_map.map[xCor+1][yCor] != 'W') {
             xCor++;
@@ -40,7 +40,7 @@ void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
 
         }
     }
-    else if(gesture == NORTH){
+    else if(direction == NORTH){
                //move up
         if (cur_map.map[xCor][yCor-1] != 'W') {
             yCor--;
@@ -48,7 +48,7 @@ void Player::movePlayer(Gesture &gesture, MazeMap &cur_map) {
            }
     }
     
-    gesture = NOWHERE;
+    direction = NOWHERE;
 }
 
 void Player::movePlayer(int key, MazeMap &cur_map) {

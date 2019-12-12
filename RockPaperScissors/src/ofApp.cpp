@@ -16,7 +16,7 @@ void Maze::setup() {
     maze_runner.setupPlayer(cur_map);
     
     current_state = START;
-    gesture = NOWHERE;
+    direction = NOWHERE;
     slow_mode = false;
     ofSetBackgroundColor(0x102178255);
     ofSetWindowTitle("Maze by Hand");
@@ -42,11 +42,11 @@ of the game
 */
 void Maze::update() {
     recognizer.update();
-    gesture = recognizer.getGesture();
+    direction = recognizer.getDirection();
     
     if(current_state == IN_PROGRESS && should_update && !slow_mode && !key_mode)
      {
-        processGesture();
+        processDirection();
     }
     
     if(maze_runner.foundWinner(cur_map)) {
@@ -138,7 +138,7 @@ void Maze::keyPressed(int key) {
             current_state = IN_PROGRESS;
         }
         else if(slow_mode) {
-            processGesture();
+            processDirection();
         }
     }
     else if(upper_key == 'F') {
@@ -211,8 +211,8 @@ void Maze::mousePressed(int x, int y, int button){
     recognizer.mousePressed(x, y, button);
 } 
 
-void Maze::processGesture() {
-    maze_runner.movePlayer(gesture, cur_map);
+void Maze::processDirection() {
+    maze_runner.movePlayer(direction, cur_map);
     
     should_update = false;
 }

@@ -11,7 +11,7 @@
 #include "ofxOpenCv.h"
 
 
-enum Gesture { WEST, EAST, NORTH, SOUTH, NOWHERE};
+enum Direction { WEST, EAST, NORTH, SOUTH, NOWHERE};
 
 // https://sites.google.com/site/ofauckland/examples/10-testing
 class HandRecognizer{
@@ -28,6 +28,6 @@ class HandRecognizer{
         void update();
         void draw(int x, int y);
         void mousePressed(int x, int y, int button);
-        Gesture getGesture();
+        Direction getDirection();
         string getDirectionName();
 };

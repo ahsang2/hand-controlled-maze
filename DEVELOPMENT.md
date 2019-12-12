@@ -66,5 +66,6 @@ I may try to revisit this in the future: here's what I tried: The following link
 - [ ] adding testing
 
 **December 11**
-- [ ] adding final features
-- [ ] adding testing
+- [X] adding final features
+- [ ] adding testing -- didn't work
+- [X] looked into maze generation :)

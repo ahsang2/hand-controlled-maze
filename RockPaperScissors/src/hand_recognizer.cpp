@@ -75,7 +75,7 @@ void HandRecognizer::mousePressed(int x, int y, int button) {
     findHue = hue.getPixels()[my*w+mx];
 }
 
-Gesture HandRecognizer::getGesture() {
+Direction HandRecognizer::getDirection() {
     for (int i = 0; i < contours.nBlobs; i++) {
         int x = 0;
         int y = 0;
@@ -83,33 +83,33 @@ Gesture HandRecognizer::getGesture() {
         
      
         if (contours.blobs[i].centroid.y > contours.blobs[i].centroid.x && contours.blobs[i].centroid.y < h - contours.blobs[i].centroid.x){
-            return Gesture::WEST;
+            return Direction::WEST;
         }
         else if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x && contours.blobs[i].centroid.y > h - contours.blobs[i].centroid.x){
-            return Gesture::EAST;
+            return Direction::EAST;
         }
         else if (contours.blobs[i].centroid.y < contours.blobs[i].centroid.x && contours.blobs[i].centroid.y < h - contours.blobs[i].centroid.x){
-            return Gesture::NORTH;
+            return Direction::NORTH;
         }
         else if (contours.blobs[i].centroid.y > contours.blobs[i].centroid.x && contours.blobs[i].centroid.y > h - contours.blobs[i].centroid.x){
-            return Gesture::SOUTH;
+            return Direction::SOUTH;
         }
     }
 }
 
 string HandRecognizer::getDirectionName() {
-    Gesture gesture = getGesture();
+    Direction Direction = getDirection();
     
-    if(gesture == Gesture::WEST) {
+    if(Direction == Direction::WEST) {
         return "Left";
     }
-    if(gesture == Gesture::EAST) {
+    if(Direction == Direction::EAST) {
         return "Right";
     }
-    if(gesture == Gesture::NORTH) {
+    if(Direction == Direction::NORTH) {
         return "Up";
     }
-    if(gesture == Gesture::SOUTH) {
+    if(Direction == Direction::SOUTH) {
         return "Down";
     }
     

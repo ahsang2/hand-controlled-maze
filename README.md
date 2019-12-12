@@ -1,27 +1,31 @@
 <!-- Write your proposal here! Make sure to use properly-formatted Markdown! -->
-<h1>Rock, Paper, Scissors</h1>
+<h1>Maze Game</h1>
 
-<p> My final project idea is a game of rock, paper, scissors, which you can play vs. the computer by using hand gestures.</p>
+<p> My final project is maze which you can control using your hand movements/position via the webcam. </p>
 
-<h2>My Plan</h2>
+<h2>How to setup for the game</h2>
 
-**Week One** 
-- [ ] Learn about and implement opencv library, to recgonize hand gestures --> https://opencv.org 
-- [ ] Figure out how to implement TensorFlow for image recognition 
-- [ ] Plan out how the camera will detect the hand (find out how to connect webcam to xcode and how to launch it), and how to train it to capture the 3 gestures
-- [ ] If I get this far, start training the program 
+**Dependencies + External Libraries** 
+OpenCV: used to capture and recognize hand movements 
+OpenFrameWorks: used to update and graw GUI window for the game
 
-**Week Two** 
-- [ ] Continue training the program
-- [ ] Start implementing recognition, and get it to work.
+**Compiling code**
+As long as you add openframeworks OfxGUi and OfxOpenCv add ons, and the OpenCV library, you should have no problems. This game was built and ran using XCode on MacOS but the process should be similiar on other operating systems.
 
-**Week Three** 
-- [ ] Implement recognizing symbols and train model, 
-- [ ] Figure out game window, make graphics for game (gui, show move by each player and keep score)
-- [ ] If time allows -> make cool annimation for computer playing it's move
+### Game
 
-**Week Four** 
+- For optiminal results it's best to isolate your hand using a glove/shirt, as the detection uses hue and color     detection to track the hand.
 
-These are ambitious deadlines. I'll need more time to catch up and add whatever else I find that I need along the way. 
-And update readme to describe project and not show plan.
+#### How to Play
 
+| Key      | Action                                                      |
+|----------|-------------------------------------------------------------|
+
+| `SPACE`  | Play                                                        |
+| `P`      | Pause                                                       |
+| `F`      | Toggle full screen                                          |
+| `W`      | Hide/show webcam                                            |   
+| `S`      | Enable/disable slow mode                                    |
+| `K`      | Toggle key mode                                             |
+
+- Right now there is only one preset maze layout, I'm working towards implementing a fully functioning maze generation game.
