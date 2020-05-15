@@ -1,13 +1,13 @@
 //
 //  maze_map.cpp
-//  RockPaperScissors
+//
 //
 //  Created by Ahsan Gilani on 12/9/19.
 //
 
 #include "maze_map.h"
 
-// current maze from https://www.youtube.com/watch?v=9Ozu-B2HLY4, also used the same of display
+
 
 using namespace maze;
 

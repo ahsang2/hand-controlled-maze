@@ -1,6 +1,6 @@
 //
 //  hand_recognizer.h
-//  RockPaperScissors
+//  
 //
 //  Created by Ahsan Gilani on 12/4/19.
 //
