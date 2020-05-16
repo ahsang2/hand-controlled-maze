@@ -4,7 +4,7 @@
 #include <utility>
 
 #include "ofMain.h"
-#include "maze_map.h"
+#include "map.h"
 #include "player.h"
 #include "hand_recognizer.h"
 
@@ -49,7 +49,7 @@ private:
     HandRecognizer recognizer;
     Direction direction;
     ofEasyCam virtual_cam;
-    MazeMap cur_map;
+    Map cur_map;
     Player maze_runner;
 
 public:

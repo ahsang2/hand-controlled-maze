@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include "hand_recognizer.h"
-#include "maze_map.h"
+#include "map.h"
 
 namespace maze {
 
@@ -21,10 +21,10 @@ class Player {
         int start_squareY;
     
     public:
-        void movePlayer(Direction &direction, MazeMap &cur_map);
-        void movePlayer(int key, MazeMap &cur_map);
-        void setupPlayer(MazeMap &cur_map);
-        bool foundWinner(MazeMap &cur_map);
+        void movePlayer(Direction &direction, Map &cur_map);
+        void movePlayer(int key, Map &cur_map);
+        void setupPlayer(Map &cur_map);
+        bool foundWinner(Map &cur_map);
         int getX();
         int getY();
         int getStartX();

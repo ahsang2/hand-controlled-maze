@@ -31,7 +31,7 @@
 		AF7CB3D2246F522F00AAE675 /* dsets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF7CB3D0246F522F00AAE675 /* dsets.cpp */; };
 		AFD503662398C61A0081FBA3 /* hand_recognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */; };
 		AFD50373239AF67E0081FBA3 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50372239AF67E0081FBA3 /* ofApp.cpp */; };
-		AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037F239EAAD00081FBA3 /* maze_map.cpp */; };
+		AFD50381239EAAD00081FBA3 /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5037F239EAAD00081FBA3 /* map.cpp */; };
 		AFD50384239ED9820081FBA3 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD50382239ED9820081FBA3 /* player.cpp */; };
 		AFD5038A23A1BE290081FBA3 /* gameplay_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD5038923A1BE290081FBA3 /* gameplay_test.cpp */; };
 		C239DFB2FD3F04108E8DF7FF /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EE802A51F9363D125C7A34 /* Helpers.cpp */; };
@@ -413,8 +413,8 @@
 		AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hand_recognizer.cpp; sourceTree = "<group>"; };
 		AFD503652398C61A0081FBA3 /* hand_recognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hand_recognizer.h; sourceTree = "<group>"; };
 		AFD50372239AF67E0081FBA3 /* ofApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
-		AFD5037F239EAAD00081FBA3 /* maze_map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = maze_map.cpp; sourceTree = "<group>"; };
-		AFD50380239EAAD00081FBA3 /* maze_map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = maze_map.h; sourceTree = "<group>"; };
+		AFD5037F239EAAD00081FBA3 /* map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
+		AFD50380239EAAD00081FBA3 /* map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = map.h; sourceTree = "<group>"; };
 		AFD50382239ED9820081FBA3 /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		AFD50383239ED9820081FBA3 /* player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
 		AFD5038923A1BE290081FBA3 /* gameplay_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameplay_test.cpp; sourceTree = "<group>"; };
@@ -2182,8 +2182,8 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				AFD503642398C61A0081FBA3 /* hand_recognizer.cpp */,
 				AFD503652398C61A0081FBA3 /* hand_recognizer.h */,
-				AFD5037F239EAAD00081FBA3 /* maze_map.cpp */,
-				AFD50380239EAAD00081FBA3 /* maze_map.h */,
+				AFD5037F239EAAD00081FBA3 /* map.cpp */,
+				AFD50380239EAAD00081FBA3 /* map.h */,
 				AFD50382239ED9820081FBA3 /* player.cpp */,
 				AFD50383239ED9820081FBA3 /* player.h */,
 				AF7CB3CD246F51DB00AAE675 /* maze.cpp */,
@@ -2355,13 +2355,14 @@
 			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Maze" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				de,
+				fr,
+				en,
+				ja,
+				Base,
 			);
 			mainGroup = E4B69B4A0A3A1720003C02F2;
 			productRefGroup = E4B69B4A0A3A1720003C02F2;
@@ -2457,7 +2458,7 @@
 				4F6C9D5B2666C0538C22CAE0 /* ofxSlider.cpp in Sources */,
 				321D8BB069E0EB6BEF26BA14 /* ofxSliderGroup.cpp in Sources */,
 				49A7E90F3FB33DB967932317 /* ofxToggle.cpp in Sources */,
-				AFD50381239EAAD00081FBA3 /* maze_map.cpp in Sources */,
+				AFD50381239EAAD00081FBA3 /* map.cpp in Sources */,
 				343CF5C395007ADD24F94731 /* ofxHandDetect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

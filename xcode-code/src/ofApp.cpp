@@ -5,7 +5,7 @@
 using namespace maze;
 
 
-const int HEIGHT = 21, WIDTH = 41;
+const int HEIGHT = 20, WIDTH = 40;
 
 // Setup method
 void Maze::setup() {
@@ -218,14 +218,15 @@ void Maze::processDirection() {
 }
 
 void Maze::useArrowKeys(int key) {
-    maze_runner.movePlayer(key, cur_map);
+    if(current_state != FINISHED)
+        maze_runner.movePlayer(key, cur_map);
 }
 
 void Maze::drawWalls() {
-    for(int y=0 ; y< HEIGHT ; y++){
-        for(int x=0 ; x< WIDTH ; x++){
-            
-            if (cur_map.map[x][y] == 'W'){
+    for(int y=0 ; y< cur_map.map.size() ; y++){
+        for(int x=0 ; x< cur_map.map[y].size() ; x++){
+           
+            if (cur_map.map[y][x] == 'W'){
                 
                 ofSetColor(63.0,63.0,63.0);
                 ofPushMatrix();

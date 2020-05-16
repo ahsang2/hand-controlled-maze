@@ -190,6 +190,18 @@ void SquareMaze::dfs(int elem, int prev, int dist) {
     }
 
 }
+
+int SquareMaze::getExitTile() {
+    return dest_tile;
+}
+
+vector<bool> SquareMaze::getRightWalls() {
+    return right_;
+}
+
+vector<bool> SquareMaze::getDownWalls() {
+    return down_;
+}
      /*
 PNG * SquareMaze::drawMaze () const {
     // Create a new PNG with dimensions based on mazeWidth and mazeHeight

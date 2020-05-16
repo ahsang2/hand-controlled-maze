@@ -95,6 +95,8 @@ Direction HandRecognizer::getDirection() {
             return Direction::SOUTH;
         }
     }
+    
+    
 }
 
 string HandRecognizer::getDirectionName() {

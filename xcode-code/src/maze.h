@@ -24,13 +24,16 @@ class SquareMaze {
         bool canTravel (int x, int y, int dir) const;
         void setWall (int x, int y, int dir, bool exists);
         vector<int> solveMaze ();
+        int getExitTile();
+        vector<bool> getRightWalls();
+        vector<bool> getDownWalls();
+        int getTileValue(int x, int y) const;
      //  PNG * drawMaze () const;
     //PNG * drawMazeWithSolution ();
     //  PNG* drawCreativeMaze();
 
     private:
        // DisjointSets connections;
-       int getTileValue(int x, int y) const;
        void setLists(vector<tuple<int, int>> &rightWalls, vector<tuple<int, int>> &bottomWalls);
        vector<bool> right_;
        vector<bool> down_;
