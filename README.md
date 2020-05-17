@@ -1,7 +1,9 @@
 <!-- Write your proposal here! Make sure to use properly-formatted Markdown! -->
 <h1>Maze Game</h1>
 
-<p> My final project is maze which you can control using your hand movements/position via the webcam. </p>
+<p> I created a maze game which supports random maze generation for any sized board. The graph algorithms used were a variation of BFS and a randomized version of Kruskal's algorithm using a disjoint sets data structure written from scratch.</p>
+
+<p> Currently, I am researching ways to improve the hand tracking conrtols of the game by doing research on optimal strategies for real-time object tracking.</p>
 
 <h2>How to setup for the game</h2>
 
