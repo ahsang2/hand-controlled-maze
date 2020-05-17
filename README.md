@@ -3,7 +3,7 @@
 
 <p> I created a maze game which supports random maze generation for any sized board. The graph algorithms used were a variation of BFS and a randomized version of Kruskal's algorithm using a disjoint sets data structure written from scratch.</p>
 
-<p> Currently, I am researching ways to improve the hand tracking conrtols of the game by doing research on optimal strategies for real-time object tracking.</p>
+<p> Currently, I am researching ways to improve the hand tracking conrtols of the game by exploring the best strategies for real-time object tracking.</p>
 
 <h2>How to setup for the game</h2>
 
